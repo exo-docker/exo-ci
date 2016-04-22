@@ -1,0 +1,3 @@
+= eXo Docker Containers for CI
+
+The aim of this repository is to give the configuration to build all eXo Platform components in Docker containers for development and Continous Integration purpose.
