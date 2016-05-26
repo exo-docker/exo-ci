@@ -7,5 +7,6 @@ The aim of this repository is to give the configuration to build all eXo Platfor
 
 [source,shell]
 ----
-docker run --name=plfui2-java8 -it -v $(pwd):/srv/exo-ci/projects/ -v ~/.m2/settings.xml:/srv/exo-ci/.m2/settings.xml  exoplatform/ci:jdk8-maven32 clean package
+$ cd my-project
+$ docker run --name=my-project-ci -it -v $(pwd):/srv/exo-ci/projects/ -v ~/.m2/settings.xml:/srv/exo-ci/.m2/settings.xml  exoplatform/ci:jdk8-maven32 clean package
 ----
