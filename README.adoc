@@ -8,5 +8,5 @@ The aim of this repository is to give the configuration to build all eXo Platfor
 [source,shell]
 ----
 $ cd my-project
-$ docker run --name=my-project-ci -it -v $(pwd):/srv/exo-ci/projects/ -v ~/.m2/settings.xml:/srv/exo-ci/.m2/settings.xml  exoplatform/ci:jdk8-maven32 clean package
+$ docker run --name=ciagent-java8 -it -v $(pwd):/opt/ciagent/workspace -v ~/.m2/repository:/opt/ciagent/.m2/repository -v ~/.m2/settings.xml:/opt/ciagent/.m2/settings.xml  exoplatform/ci:jdk8-maven32 clean package
 ----
