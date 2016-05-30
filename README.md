@@ -12,3 +12,14 @@ $ docker run --name=my-project-build -it -v $(pwd):/opt/ciagent/workspace \
      -v ~/.m2/settings.xml:/opt/ciagent/.m2/settings.xml \
      exoplatform/ci:jdk8-maven32 clean package
 ```
+
+
+## JDK6 - Maven 3.0
+
+```
+$ cd my-project
+$ docker run --name=my-project-build -it -v $(pwd):/opt/ciagent/workspace \
+     -v ~/.m2/repository:/opt/ciagent/.m2/repository \
+     -v ~/.m2/settings.xml:/opt/ciagent/.m2/settings.xml \
+     exoplatform/ci:jdk6-maven30 clean package
+```
