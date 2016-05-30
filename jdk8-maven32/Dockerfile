@@ -37,6 +37,11 @@ RUN mkdir -p ${EXO_CI_LOG_DIR}   && chown ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_L
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
   && mv /usr/share/apache-maven-$MAVEN_VERSION ${EXO_CI_TOOLS_DIR}/maven-$MAVEN_VERSION
 
+# Workaround to be able to execute others command than "mvn" as entrypoint
+COPY docker-entrypoint.sh /
+RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /*.sh \
+     && chmod u+x /*.sh
+
 USER ${EXO_CI_USER}
 # Custom configuration for Maven
 ENV M2_HOME=${EXO_CI_TOOLS_DIR}/maven-$MAVEN_VERSION
@@ -47,5 +52,7 @@ VOLUME ["/opt/ciagent/log", "/opt/ciagent/workspace", "/opt/ciagent/.m2"]
 
 WORKDIR ${EXO_CI_DATA_DIR}
 
-ENTRYPOINT ["mvn"]
-CMD ["--version"]
+# Workaround to be able to execute others command than "mvn" as entrypoint
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["mvn", "--help"]
