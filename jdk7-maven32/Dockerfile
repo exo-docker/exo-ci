@@ -1,4 +1,4 @@
-FROM       exoplatform/base-jdk:jdk6
+FROM       exoplatform/base-jdk:jdk7
 MAINTAINER GREAU Maxime <mgreau+docker@exoplatform.com>
 
 # Set the locale
@@ -19,7 +19,7 @@ ENV EXO_CI_LOG_DIR         ${EXO_CI_BASE}/logs
 ENV EXO_CI_TMP_DIR         ${EXO_CI_BASE}/tmp
 
 # CI Tools version
-ENV MAVEN_VERSION 3.0.5
+ENV MAVEN_VERSION 3.2.5
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN useradd --create-home --user-group --shell /bin/bash ${EXO_CI_USER}

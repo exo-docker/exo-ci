@@ -1,4 +1,4 @@
-FROM       exoplatform/base-jdk:jdk6
+FROM       exoplatform/base-jdk:jdk7
 MAINTAINER GREAU Maxime <mgreau+docker@exoplatform.com>
 
 # Set the locale
