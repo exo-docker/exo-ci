@@ -13,7 +13,7 @@ ENV EXO_GROUP ciagent
 
 # Required directories for ciagent
 ENV EXO_CI_BASE            /opt/ciagent
-ENV EXO_CI_TOOLS_DIR       ${EXO_CI_BASE}/tools
+ENV EXO_CI_TOOLS_DIR       ${EXO_CI_BASE}/ci-tools
 ENV EXO_CI_DATA_DIR        ${EXO_CI_BASE}/workspace
 ENV EXO_CI_LOG_DIR         ${EXO_CI_BASE}/logs
 ENV EXO_CI_TMP_DIR         ${EXO_CI_BASE}/tmp
