@@ -57,3 +57,31 @@ $ docker run --name=my-project-build -it -v $(pwd):/opt/ciagent/workspace \
      -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
      exoplatform/ci:jdk8-maven32 clean package
 ```
+
+## Configure your .bash_profile
+
+```
+jdk6mvn30(){
+	docker run --rm -v $(pwd):/opt/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk6-maven30 $*
+}
+
+jdk7mvn30(){
+	docker run --rm -v $(pwd):/opt/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk7-maven30 $*
+}
+
+jdk7mvn32(){
+	docker run --rm -v $(pwd):/opt/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk7-maven32 $*
+}
+
+jdk8mvn32(){
+	docker run --rm -v $(pwd):/opt/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk8-maven32 $*
+}
+```
+
+## Build with the right configuration
+
+```
+$ source ~/.bash_profile
+$ cd my-project
+$ jdk8mvn32 clean package
+```
