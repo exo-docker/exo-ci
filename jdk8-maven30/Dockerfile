@@ -27,9 +27,10 @@ RUN useradd --create-home --user-group --shell /bin/bash ${EXO_CI_USER}
 RUN echo "ciagent  ALL = NOPASSWD: ALL" > /etc/sudoers.d/ciagent && chmod 440 /etc/sudoers.d/ciagent
 
 # Create needed directories
-RUN mkdir -p ${EXO_CI_DATA_DIR}  && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_DATA_DIR}
-RUN mkdir -p ${EXO_CI_TMP_DIR}   && chown ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_TMP_DIR}
-RUN mkdir -p ${EXO_CI_LOG_DIR}   && chown ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_LOG_DIR}
+RUN mkdir -p ${EXO_CI_DATA_DIR}  \
+   && mkdir -p ${EXO_CI_TMP_DIR} \
+   && mkdir -p ${EXO_CI_LOG_DIR} \
+   && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_BASE}
 
 # Install Git (required for Maven plugins)
 RUN  add-apt-repository ppa:git-core/ppa && \
