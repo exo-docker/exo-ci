@@ -59,7 +59,7 @@ ENV MAVEN_OPTS="-Dmaven.repo.local=${HOME}/.m2/repository -XX:+UseConcMarkSweepG
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 # Create needed directories for Maven & git
-RUN mkdir -p ${HOME}/.m2 \
+RUN mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.ssh \
     && mkdir -p ${HOME}/.gnupg
 
