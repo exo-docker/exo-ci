@@ -6,4 +6,4 @@ if [[ "$1" == "/"* ]] || [[ "$1" == "cat" ]]; then
   exec "$@"
 fi
 
-exec /usr/bin/validate_puppet
+exec /usr/bin/validate_puppet $@

@@ -37,7 +37,7 @@ RUN  echo "# Sources for recent versions of puppet" > /etc/apt/sources.list.d/pu
   sudo gpg --keyserver keyserver.ubuntu.com --recv-key 4BD6EC30 && \
   sudo gpg -a --export 4BD6EC30 | sudo apt-key add - && \
   apt-get update && \
-  apt-get install -y puppet
+  apt-get install -y puppet git
 RUN gem install r10k -v 2.0.3
 
 RUN apt-get -qq -y autoremove && \
