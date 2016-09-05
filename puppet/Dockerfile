@@ -24,9 +24,6 @@ RUN useradd --create-home --user-group -u 13000 --shell /bin/bash ${EXO_CI_USER}
 # giving all rights to eXo CI user
 RUN echo "ciagent  ALL = NOPASSWD: ALL" > /etc/sudoers.d/ciagent && chmod 440 /etc/sudoers.d/ciagent
 
-# Install puppet tools
-RUN apt-get update && apt-get install -y puppet && gem install r10k -v 2.4.3
-
 # Create needed directories
 RUN mkdir -p ${EXO_CI_DATA_DIR}  \
    && mkdir -p ${EXO_CI_TMP_DIR} \
@@ -34,10 +31,16 @@ RUN mkdir -p ${EXO_CI_DATA_DIR}  \
    && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_BASE}
 
 # Install Git (required for Maven plugins)
-RUN  add-apt-repository ppa:git-core/ppa && \
+RUN  echo "# Sources for recent versions of puppet" > /etc/apt/sources.list.d/puppet.list && \
+  echo "deb http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppet.list && \
+  echo "deb-src http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppet.list && \
+  sudo gpg --keyserver keyserver.ubuntu.com --recv-key 4BD6EC30 && \
+  sudo gpg -a --export 4BD6EC30 | sudo apt-key add - && \
   apt-get update && \
-  sudo apt-get install git -y && \
-  apt-get -qq -y autoremove && \
+  apt-get install -y puppet
+RUN gem install r10k -v 2.0.3
+
+RUN apt-get -qq -y autoremove && \
   apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*
 
