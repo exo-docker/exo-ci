@@ -58,6 +58,21 @@ $ docker run --name=my-project-build -it -v $(pwd):/opt/ciagent/workspace \
      exoplatform/ci:jdk8-maven32 clean package
 ```
 
+## Puppet
+
+```
+$ cd my-project
+$ docker run --name puppet-validation -it -v ${PWD}:/opt/ciagent/workspace \
+      exoplatform/ci:puppet
+```
+
+You can specify the ``-u`` option to force the modules update via ``r10k``
+Example :
+```
+docker run --name puppet-validation -it -v ${PWD}:/opt/ciagent/workspace \
+      exoplatform/ci:puppet -u
+```
+
 ## Configure your .bash_profile
 
 ```
@@ -75,6 +90,11 @@ jdk7mvn32(){
 
 jdk8mvn32(){
 	docker run --rm -v $(pwd):/opt/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk8-maven32 $*
+}
+
+puppet_validate(){
+docker run --name puppet-validation -it -v ${PWD}:/opt/ciagent/workspace \
+      exoplatform/ci:puppet $*
 }
 ```
 
