@@ -20,7 +20,7 @@ while getopts ":uh" opt; do
 done
 
 if [ ${UPDATE_MODULES} == true ]; then
-  ${EXO_CI_DATA_DIR}/r10k-install-module.sh
+  ${EXO_CI_DATA_DIR}/${JOB_NAME}/r10k-install-module.sh
 fi
 
 find ${EXO_CI_DATA_DIR} -name '*.pp' | xargs -n 1 -t puppet parser validate
