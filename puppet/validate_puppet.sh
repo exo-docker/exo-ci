@@ -21,6 +21,11 @@ done
 
 if [ ${UPDATE_MODULES} == true ]; then
   ${EXO_CI_DATA_DIR}/${JOB_NAME}/r10k-install-module.sh
+  RET=$?
+  if [ ${RET} -ne 0 ]; then
+    echo "Error cloning puppet modules"
+    exit ${RET}
+  fi
 fi
 
 find ${EXO_CI_DATA_DIR} -name '*.pp' | xargs -n 1 -t puppet parser validate
