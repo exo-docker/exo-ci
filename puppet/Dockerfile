@@ -55,7 +55,7 @@ USER ${EXO_CI_USER}
 # Create needed directories for Maven & git
 RUN mkdir -p ${HOME}/.ssh
 
-VOLUME ["/opt/ciagent"]
+VOLUME ["/srv/ciagent"]
 
 WORKDIR ${EXO_CI_DATA_DIR}
 

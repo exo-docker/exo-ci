@@ -13,7 +13,7 @@ ENV EXO_GROUP ciagent
 ENV HOME /home/${EXO_CI_USER}
 
 # Required directories for ciagent
-ENV EXO_CI_BASE       /opt/ciagent
+ENV EXO_CI_BASE       /srv/ciagent
 ENV EXO_CI_DATA_DIR   ${EXO_CI_BASE}/workspace
 ENV EXO_CI_LOG_DIR    ${EXO_CI_BASE}/logs
 ENV EXO_CI_TMP_DIR    ${EXO_CI_BASE}/tmp
@@ -62,7 +62,7 @@ RUN mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.ssh \
     && mkdir -p ${HOME}/.gnupg
 
-VOLUME ["/opt/ciagent", "/usr/share/maven"]
+VOLUME ["/srv/ciagent", "/usr/share/maven"]
 
 WORKDIR ${EXO_CI_DATA_DIR}
 
