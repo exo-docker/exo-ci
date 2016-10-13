@@ -8,6 +8,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # eXo CI User
+ARG EXO_CI_USER_UID=13000
 ENV EXO_CI_USER ciagent
 ENV EXO_GROUP ciagent
 ENV HOME /home/${EXO_CI_USER}
@@ -22,7 +23,7 @@ ENV EXO_CI_TMP_DIR    ${EXO_CI_BASE}/tmp
 ENV MAVEN_VERSION 3.0.5
 
 # Create user and group with specific ids
-RUN useradd --create-home --user-group -u 13000 --shell /bin/bash ${EXO_CI_USER}
+RUN useradd --create-home --user-group -u ${EXO_CI_USER_UID} --shell /bin/bash ${EXO_CI_USER}
 # giving all rights to eXo CI user
 RUN echo "ciagent  ALL = NOPASSWD: ALL" > /etc/sudoers.d/ciagent && chmod 440 /etc/sudoers.d/ciagent
 
