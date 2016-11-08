@@ -32,10 +32,10 @@ RUN mkdir -p ${EXO_CI_DATA_DIR}  && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_C
 RUN mkdir -p ${EXO_CI_TMP_DIR}   && chown ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_TMP_DIR}
 RUN mkdir -p ${EXO_CI_LOG_DIR}   && chown ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_LOG_DIR}
 
-# Install Git (required for Maven plugins)
+# Install Git (required for Maven plugins) & XMLStarlet 
 RUN  add-apt-repository ppa:git-core/ppa && \
   apt-get update && \
-  sudo apt-get install git -y && \
+  sudo apt-get install git xmlstarlet -y && \
   apt-get -qq -y autoremove && \
   apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*

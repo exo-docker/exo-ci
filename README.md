@@ -73,6 +73,29 @@ docker run --name puppet-validation -it -v ${PWD}:/srv/ciagent/workspace \
       exoplatform/ci:puppet -u
 ```
 
+## XMLStarlet
+
+XMLStarlet is a set of command line utilities (tools) which can be used to transform, query, validate, and edit XML documents and files using simple set of shell commands in similar way it is done for plain text files using UNIX grep, sed, awk, diff, patch, join, etc commands.
+* http://xmlstar.sourceforge.net/doc/UG/xmlstarlet-ug.html#idm47077139729008
+
+At eXo, we use it to update Maven POM XML files for FB and Translation process.
+
+examples:
+```
+$ cd /tmp/xmlstarlet
+$ wget https://raw.githubusercontent.com/exoplatform/maven-parent-pom/develop/pom.xml
+$ docker run -it --rm --name=xmlstartlet  -v $(pwd):/srv/ciagent/workspace --entrypoint=/bin/bash  exoplatform/ci:jdk8-maven32
+
+# Update POM version from X-SNAPSHOT to X-translation-SNAPSHOT
+ciagent@b32b684a1d6b:/srv/ciagent/workspace$ xmlstarlet ed --inplace -N pom=http://maven.apache.org/POM/4.0.0 \
+  -u '/pom:project/pom:version[contains(text(), "-SNAPSHOT")]' \
+  -x "concat(substring-before(.,'-SNAPSHOT'), '-translation-SNAPSHOT')" \
+  pom.xml
+
+# Update all POMs files in a Maven reactor project
+ciagent@b32b684a1d6b:/srv/ciagent/workspace$ find . -name pom.xml -not -wholename "*/target/*" | xargs -t -n 1 xmlstarlet ed -P --inplace -N pom=http://maven.apache.org/POM/4.0.0 -u '/pom:project/pom:version[contains(text(), "-SNAPSHOT")]' -x "concat(substring-before(.,'-SNAPSHOT'), '-translation-SNAPSHOT')"
+```
+
 ## Configure your .bash_profile
 
 ```
