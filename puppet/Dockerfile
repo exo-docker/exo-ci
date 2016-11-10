@@ -34,8 +34,8 @@ RUN mkdir -p ${EXO_CI_DATA_DIR}  \
 RUN  echo "# Sources for recent versions of puppet" > /etc/apt/sources.list.d/puppet.list && \
   echo "deb http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppet.list && \
   echo "deb-src http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppet.list && \
-  sudo gpg --keyserver keyserver.ubuntu.com --recv-key 4BD6EC30 && \
-  sudo gpg -a --export 4BD6EC30 | sudo apt-key add - && \
+  sudo gpg --keyserver keyserver.ubuntu.com --recv-key 7F438280EF8D349F && \
+  sudo gpg -a --export 7F438280EF8D349F | sudo apt-key add - && \
   apt-get update && \
   apt-get install -y puppet git
 RUN gem install r10k -v 2.0.3
