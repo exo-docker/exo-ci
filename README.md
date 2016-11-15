@@ -3,7 +3,7 @@
 The aim of this repository is to give the configuration to build all eXo Platform components in Docker containers for development and Continous Integration purpose.
 
 
-## JDK6 - Maven 3.0
+## JDK6 - Maven 3.0 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk6-maven30.svg)](https://microbadger.com/images/exoplatform/ci:jdk6-maven30 "exoplatform/ci:jdk6-maven30")
 
 ```
 $ cd my-project
@@ -26,7 +26,7 @@ $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
      exoplatform/ci:jdk6-maven30 install -Prelease
 ```
 
-## JDK7 - Maven 3.0
+## JDK7 - Maven 3.0 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk7-maven30.svg)](https://microbadger.com/images/exoplatform/ci:jdk7-maven30 "exoplatform/ci:jdk7-maven30")
 
 ```
 $ cd my-project
@@ -37,7 +37,7 @@ $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
 ```
 
 
-## JDK7 - Maven 3.2
+## JDK7 - Maven 3.2 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk7-maven32.svg)](https://microbadger.com/images/exoplatform/ci:jdk7-maven32 "exoplatform/ci:jdk7-maven32")
 
 ```
 $ cd my-project
@@ -48,7 +48,7 @@ $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
 ```
 
 
-## JDK8 - Maven 3.2
+## JDK8 - Maven 3.2 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk8-maven32.svg)](https://microbadger.com/images/exoplatform/ci:jdk8-maven32 "exoplatform/ci:jdk8-maven32")
 
 ```
 $ cd my-project
@@ -58,7 +58,7 @@ $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
      exoplatform/ci:jdk8-maven32 clean package
 ```
 
-## Puppet
+## Puppet [![](https://images.microbadger.com/badges/image/exoplatform/ci:puppet.svg)](https://microbadger.com/images/exoplatform/ci:puppet "exoplatform/ci:puppet")
 
 ```
 $ cd my-project
