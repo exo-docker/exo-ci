@@ -93,7 +93,7 @@ ciagent@b32b684a1d6b:/srv/ciagent/workspace$ xmlstarlet ed --inplace -N pom=http
   pom.xml
 
 # Update all POMs files in a Maven reactor project
-ciagent@b32b684a1d6b:/srv/ciagent/workspace$ find . -name pom.xml -not -wholename "*/target/*" | xargs -t -n 1 xmlstarlet ed -P --inplace -N pom=http://maven.apache.org/POM/4.0.0 -u '/pom:project/pom:version[contains(text(), "-SNAPSHOT")]' -x "concat(substring-before(.,'-SNAPSHOT'), '-translation-SNAPSHOT')"
+ciagent@b32b684a1d6b:/srv/ciagent/workspace$ find . -name pom.xml | xargs -t -n 1 xmlstarlet ed -P --inplace -N pom=http://maven.apache.org/POM/4.0.0 -u '/pom:project/pom:version[contains(text(), "-SNAPSHOT")]' -x "concat(substring-before(.,'-SNAPSHOT'), '-translation-SNAPSHOT')"
 ```
 
 ## Configure your .bash_profile
