@@ -63,8 +63,6 @@ RUN mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.ssh \
     && mkdir -p ${HOME}/.gnupg
 
-VOLUME ["/srv/ciagent", "/usr/share/maven"]
-
 WORKDIR ${EXO_CI_DATA_DIR}
 
 # Workaround to be able to execute others command than "mvn" as entrypoint
