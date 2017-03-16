@@ -58,6 +58,16 @@ $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
      exoplatform/ci:jdk8-maven32 clean package
 ```
 
+## JDK8 - Maven 3.3 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk8-maven33.svg)](https://microbadger.com/images/exoplatform/ci:jdk8-maven33 "exoplatform/ci:jdk8-maven33")
+
+```
+$ cd my-project
+$ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
+     -v ~/.m2/repository:/home/ciagent/.m2/repository \
+     -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
+     exoplatform/ci:jdk8-maven33 clean package
+```
+
 ## Puppet [![](https://images.microbadger.com/badges/image/exoplatform/ci:puppet.svg)](https://microbadger.com/images/exoplatform/ci:puppet "exoplatform/ci:puppet")
 
 ```
@@ -113,6 +123,10 @@ jdk7mvn32(){
 
 jdk8mvn32(){
 	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk8-maven32 $*
+}
+
+jdk8mvn33(){
+	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk8-maven33 $*
 }
 
 puppet_validate(){
