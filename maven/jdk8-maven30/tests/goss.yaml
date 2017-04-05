@@ -1,0 +1,23 @@
+file:
+  /home/ciagent/.m2/repository:
+    title: Validating the presence Maven repository folder
+    exists: true
+  /home/ciagent/.m2/settings.xml:
+    title: Validating the absence of eXo USER settings file
+    exists: false   
+  /usr/share/maven/conf/settings.xml:
+    title: Validating the presence of eXo GLOBAL settings file
+    exists: true      
+package:
+  git:
+    installed: true
+    title: Check that git is installed
+command:
+  mvn --version:
+    exit-status: 0
+    stdout:
+    - 3.0.5
+    - 1.8.0
+    - UTF-8
+    stderr: []
+    timeout: 0
