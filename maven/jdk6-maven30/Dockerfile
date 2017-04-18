@@ -18,7 +18,7 @@ USER ${EXO_CI_USER}
 
 # Custom configuration for Maven
 ENV M2_HOME=/usr/share/maven
-ENV MAVEN_OPTS="-Dmaven.repo.local=${HOME}/.m2/repository -XX:+UseConcMarkSweepGC -Xms1G -Xmx2G -XX:MaxMetaspaceSize=1G -Dcom.sun.media.jai.disableMediaLib=true -Djava.io.tmpdir=${EXO_CI_TMP_DIR} -Dmaven.artifact.threads=10 -Djava.awt.headless=true"
+ENV MAVEN_OPTS="-Dmaven.repo.local=${HOME}/.m2/repository -XX:+UseConcMarkSweepGC -Xms1G -Xmx2G -XX:MaxPermSize=512M -Dcom.sun.media.jai.disableMediaLib=true -Djava.io.tmpdir=${EXO_CI_TMP_DIR} -Dmaven.artifact.threads=10 -Djava.awt.headless=true"
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 # Create needed directories for Maven & git

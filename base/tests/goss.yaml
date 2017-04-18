@@ -1,0 +1,14 @@
+file:
+  /root/.config/htop/htoprc:
+    title: Validating the presence of htop conf file
+    exists: true
+  /home/ciagent:
+    title: Validating the home path for eXo CI Agent user
+    exists: true
+package:
+  git:
+    installed: true
+    title: Check that git is installed
+  unzip:
+    installed: true
+    title: Check that unzip is installed

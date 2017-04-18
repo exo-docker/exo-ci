@@ -1,32 +1,75 @@
-# eXo Docker Containers for CI
+# eXo Docker Images for CI
 
-The aim of this repository is to give the configuration to build all eXo Platform components in Docker containers for development and Continous Integration purpose.
+[![Docker Stars](https://img.shields.io/docker/stars/exoplatform/ci.svg?maxAge=2592000)]() - [![Docker Pulls](https://img.shields.io/docker/pulls/exoplatform/ci.svg?maxAge=2592000)]()
 
+The aim of this repository is to give the configuration to **build all eXo Platform components in Docker containers** for Development and Continous Integration purpose.
 
-## JDK6 - Maven 3.0 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk6-maven30.svg)](https://microbadger.com/images/exoplatform/ci:jdk6-maven30 "exoplatform/ci:jdk6-maven30")
+It contains **Dockerfiles, Tests and configuration** for the following CI Images:
 
+|    Image                          |  JDK  |   Build tool |  Size    | Tests
+|-----------------------------------|-------|--------------|----------|----
+| exoplatform/ci:base               |   n/a | n/a      |[![](https://badge.imagelayers.io/exoplatform/ci:base.svg)](https://imagelayers.io/?images=exoplatform/ci:base 'Get your own badge on imagelayers.io') | [goss.yaml](base/tests/goss.yaml)
+| exoplatform/ci:jdk6               |   1.6.0_45 | n/a      |[![](https://badge.imagelayers.io/exoplatform/ci:jdk6.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk6 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk6/tests/goss.yaml)
+| exoplatform/ci:jdk7               |   1.7.0_79 | n/a           |[![](https://badge.imagelayers.io/exoplatform/ci:jdk7.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk7 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk7/tests/goss.yaml)
+| exoplatform/ci:jdk8               |   1.8.0_92 | n/a    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk8/tests/goss.yaml)
+| exoplatform/ci:jdk8-gradle2       |   1.8.0_92 | Gradle 2.14    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk8/tests/goss.yaml)
+| exoplatform/ci:jdk6-maven30       |    1.6.0_45 | Maven 3.0.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk6-maven30.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk6-maven30 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk6-maven30/tests/goss.yaml)
+| exoplatform/ci:jdk7-maven30       |    1.7.0_79 | Maven 3.0.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk7-maven30.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk7-maven30 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk7-maven30/tests/goss.yaml)
+| exoplatform/ci:jdk7-maven32       |    1.7.0_79 | Maven 3.2.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk7-maven32.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk7-maven32 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk7-maven32/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven30       |    1.8.0_92 | Maven 3.0.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8-maven30.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-maven30 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk8-maven30/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven32       |    1.8.0_92 | Maven 3.2.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8-maven32.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-maven32 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk8-maven32/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven33       |    1.8.0_92 | Maven 3.3.9    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8-maven33.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-maven33 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk8-maven33/tests/goss.yaml)
+
+## Overview
+
+This diagram show an overview of the inheritance in eXo CI Docker images:
+
+![Image of Yaktocat](doc/images/exo-ci-dockerfiles.png)
+
+## How to execute tests?
+
+**To run tests, you have to install [dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss)**
+
+You can build and test all images by running the script:
 ```
-$ cd my-project
-$ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
-     -v ~/.m2/repository:/srv/ciagent/.m2/repository \
-     -v ~/.m2/settings.xml:/srv/ciagent/.m2/settings.xml \
-     exoplatform/ci:jdk6-maven30 clean package
+$ ./test_all_images.sh
 ```
 
-### With Release Profile
-
+If you want to execute test on a specific Docker image:
 ```
-$ cd my-project
-$ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
-     -v ~/.m2/repository:/home/ciagent/.m2/repository \
-     -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
-     -v ~/.gnupg/pubring.gpg:/home/ciagent/.gnupg/pubring.gpg:ro \
-     -v ~/.gnupg/secring.gpg:/home/ciagent/.gnupg/secring.gpg:ro \
-     -v ~/.gnupg/gpg.conf:/home/ciagent/.gnupg/gpg.conf:ro \
-     exoplatform/ci:jdk6-maven30 install -Prelease
+$ cd maven/jdk7-maven32/tests
+$ ./test_image.sh
+```
+Then you should have a log like below:
+```
+INFO: Starting docker container
+INFO: Container ID: 59897f6f
+INFO: Sleeping for 0.2
+INFO: Running Tests
+Title: Validating the presence of eXo GLOBAL settings file
+File: /usr/share/maven/conf/settings.xml: exists: matches expectation: [true]
+Title: Validating the presence Maven repository folder
+File: /home/ciagent/.m2/repository: exists: matches expectation: [true]
+Title: Validating the absence of eXo USER settings file
+File: /home/ciagent/.m2/settings.xml: exists: matches expectation: [false]
+Title: Check that git is installed
+Package: git: installed: matches expectation: [true]
+Command: mvn --version: exit-status: matches expectation: [0]
+Command: mvn --version: stdout: matches expectation: [3.2.5 1.7.0 Default locale: en_US, platform encoding: UTF-8]
+
+
+Total Duration: 0.650s
+Count: 6, Failed: 0, Skipped: 0
+INFO: Deleting container
+
+real    0m2.929s
+user    0m0.064s
+sys     0m0.288s
 ```
 
-## JDK7 - Maven 3.0 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk7-maven30.svg)](https://microbadger.com/images/exoplatform/ci:jdk7-maven30 "exoplatform/ci:jdk7-maven30")
+## How to use a eXo CI Docker Image?
+
+### Basic Example with JDK7 - Maven 3.0
 
 ```
 $ cd my-project
@@ -36,39 +79,21 @@ $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
      exoplatform/ci:jdk7-maven30 clean package
 ```
 
-
-## JDK7 - Maven 3.2 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk7-maven32.svg)](https://microbadger.com/images/exoplatform/ci:jdk7-maven32 "exoplatform/ci:jdk7-maven32")
-
-```
-$ cd my-project
-$ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
-     -v ~/.m2/repository:/home/ciagent/.m2/repository \
-     -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
-     exoplatform/ci:jdk7-maven32 clean package
-```
-
-
-## JDK8 - Maven 3.2 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk8-maven32.svg)](https://microbadger.com/images/exoplatform/ci:jdk8-maven32 "exoplatform/ci:jdk8-maven32")
+### Advanced example with JDK8 - Maven 3.2 and Release Profile
 
 ```
 $ cd my-project
 $ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
      -v ~/.m2/repository:/home/ciagent/.m2/repository \
      -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
-     exoplatform/ci:jdk8-maven32 clean package
+     -v ~/.gnupg/pubring.gpg:/home/ciagent/.gnupg/pubring.gpg:ro \
+     -v ~/.gnupg/secring.gpg:/home/ciagent/.gnupg/secring.gpg:ro \
+     -v ~/.gnupg/gpg.conf:/home/ciagent/.gnupg/gpg.conf:ro \
+     exoplatform/ci:jdk8-maven32 install -Prelease
 ```
 
-## JDK8 - Maven 3.3 [![](https://images.microbadger.com/badges/image/exoplatform/ci:jdk8-maven33.svg)](https://microbadger.com/images/exoplatform/ci:jdk8-maven33 "exoplatform/ci:jdk8-maven33")
 
-```
-$ cd my-project
-$ docker run --name=my-project-build -it -v $(pwd):/srv/ciagent/workspace \
-     -v ~/.m2/repository:/home/ciagent/.m2/repository \
-     -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
-     exoplatform/ci:jdk8-maven33 clean package
-```
-
-## Puppet [![](https://images.microbadger.com/badges/image/exoplatform/ci:puppet.svg)](https://microbadger.com/images/exoplatform/ci:puppet "exoplatform/ci:puppet")
+## How to use eXo Puppet Docker Image [![](https://images.microbadger.com/badges/image/exoplatform/ci:puppet.svg)](https://microbadger.com/images/exoplatform/ci:puppet "exoplatform/ci:puppet")
 
 ```
 $ cd my-project
@@ -106,36 +131,63 @@ ciagent@b32b684a1d6b:/srv/ciagent/workspace$ xmlstarlet ed --inplace -N pom=http
 ciagent@b32b684a1d6b:/srv/ciagent/workspace$ find . -name pom.xml | xargs -t -n 1 xmlstarlet ed -P --inplace -N pom=http://maven.apache.org/POM/4.0.0 -u '/pom:project/pom:version[contains(text(), "-SNAPSHOT")]' -x "concat(substring-before(.,'-SNAPSHOT'), '-translation-SNAPSHOT')"
 ```
 
-## Configure your .bash_profile
+## Developer configuration
+
+### Configure your .bash_profile
+
+In order to quickly run build with different stack (Maven and JDK), you can configure your `.bash_profile` file 
+with the following alias:
 
 ```
-jdk6mvn30(){
-	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk6-maven30 $*
+#!/bin/bash
+# Run Maven commands in Containers
+
+c-mvn(){
+      mvnInContainer "exoplatform/ci:jdk8-maven33" "$@"
+}
+jdk8mvn32(){
+      mvnInContainer "exoplatform/ci:jdk8-maven32" "$@"
 }
 
-jdk7mvn30(){
-	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk7-maven30 $*
+jdk8mvn30(){
+      mvnInContainer "exoplatform/ci:jdk8-maven30" "$@"
 }
 
 jdk7mvn32(){
-	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk7-maven32 $*
+      mvnInContainer "exoplatform/ci:jdk7-maven32" "$@"
 }
 
-jdk8mvn32(){
-	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk8-maven32 $*
+jdk7mvn30(){
+      mvnInContainer "exoplatform/ci:jdk7-maven30" "$@"
 }
 
-jdk8mvn33(){
-	docker run --rm -v $(pwd):/srv/ciagent/workspace -v ~/.m2/repository:/home/ciagent/.m2/repository -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml exoplatform/ci:jdk8-maven33 $*
+jdk6mvn30(){
+      mvnInContainer "exoplatform/ci:jdk6-maven30" "$@"
 }
 
+# Run Maven commands in a container
+mvnInContainer(){
+      local dockerImage=$1
+
+      docker run --rm \
+        -v $(pwd):/srv/ciagent/workspace \
+        -v ~/.gnupg/gpg.conf:/home/ciagent/.gnupg/gpg.conf:ro \
+        -v ~/.gnupg/pubring.gpg:/home/ciagent/.gnupg/pubring.gpg:ro \
+        -v ~/.gnupg/secring.gpg:/home/ciagent/.gnupg/secring.gpg:ro \
+        -v ~/.gnupg/trustdb.gpg:/home/ciagent/.gnupg/trustdb.gpg:ro \
+        -v ~/.gnupg:/home/ciagent/.gnupg \
+        -v ~/.m2/repository:/home/ciagent/.m2/repository \
+        -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
+        --workdir /srv/ciagent/workspace \
+        ${dockerImage} "${@:2}"
+}
 puppet_validate(){
 docker run --name puppet-validation -it -v ${PWD}:/srv/ciagent/workspace \
       exoplatform/ci:puppet $*
 }
 ```
 
-## Build with the right configuration
+### Build with the right configuration
 
 ```
 $ source ~/.bash_profile

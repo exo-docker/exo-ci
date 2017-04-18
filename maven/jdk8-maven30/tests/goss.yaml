@@ -16,8 +16,8 @@ command:
   mvn --version:
     exit-status: 0
     stdout:
-    - 3.0.5
     - 1.8.0
-    - UTF-8
+    - "Apache Maven 3.0.5"
+    - "Default locale: en_US, platform encoding: UTF-8"
     stderr: []
     timeout: 0

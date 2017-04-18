@@ -18,6 +18,6 @@ command:
     stdout:
     - 3.2.5
     - 1.7.0
-    - UTF-8
+    - "Default locale: en_US, platform encoding: UTF-8"
     stderr: []
     timeout: 0
