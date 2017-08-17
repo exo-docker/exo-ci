@@ -23,6 +23,7 @@ ENV PATH=$JAVA_HOME/bin:$GRADLE_HOME/bin:$PATH
 
 # Create needed directories for Gradle & git
 RUN mkdir -p ${HOME}/.gradle \
+    && mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.ssh \
     && mkdir -p ${HOME}/.gnupg
 
