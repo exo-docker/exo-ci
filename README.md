@@ -6,21 +6,21 @@ The aim of this repository is to give the configuration to **build all eXo Platf
 
 It contains **Dockerfiles, Tests and configuration** for the following CI Images:
 
-|    Image                            |  JDK         |   Build tool   |  Size    | Tests
-|-------------------------------------|--------------|----------------|----------|----
-| exoplatform/ci:base                 |   n/a        | n/a            |[![](https://badge.imagelayers.io/exoplatform/ci:base.svg)](https://imagelayers.io/?images=exoplatform/ci:base 'Get your own badge on imagelayers.io') | [goss.yaml](base/tests/goss.yaml)
-| exoplatform/ci:jdk6                 |   1.6.0_45   | n/a            |[![](https://badge.imagelayers.io/exoplatform/ci:jdk6.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk6 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk6/tests/goss.yaml)
-| exoplatform/ci:jdk7                 |   1.7.0_79   | n/a            |[![](https://badge.imagelayers.io/exoplatform/ci:jdk7.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk7 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk7/tests/goss.yaml)
-| exoplatform/ci:jdk8                 |   1.8.0_92   | n/a            |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk8/tests/goss.yaml)
-| exoplatform/ci:jdk8-gradle2         |   1.8.0_92   | Gradle 2.14    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8 'Get your own badge on imagelayers.io') | [goss.yaml](jdk/jdk8/tests/goss.yaml)
-| exoplatform/ci:jdk8-gradle2-android |   1.8.0_92   | Gradle 2.14 / Android 23/24    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-gradle2-android 'Get your own badge on imagelayers.io') | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
-| exoplatform/ci:jdk6-maven30         |    1.6.0_45  | Maven 3.0.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk6-maven30.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk6-maven30 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk6-maven30/tests/goss.yaml)
-| exoplatform/ci:jdk6-maven32         |    1.6.0_45  | Maven 3.2.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk6-maven32.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk6-maven32 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk6-maven32/tests/goss.yaml)
-| exoplatform/ci:jdk7-maven30         |    1.7.0_79  | Maven 3.0.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk7-maven30.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk7-maven30 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk7-maven30/tests/goss.yaml)
-| exoplatform/ci:jdk7-maven32         |    1.7.0_79  | Maven 3.2.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk7-maven32.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk7-maven32 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk7-maven32/tests/goss.yaml)
-| exoplatform/ci:jdk8-maven30         |    1.8.0_92  | Maven 3.0.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8-maven30.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-maven30 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk8-maven30/tests/goss.yaml)
-| exoplatform/ci:jdk8-maven32         |    1.8.0_92  | Maven 3.2.5    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8-maven32.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-maven32 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk8-maven32/tests/goss.yaml)
-| exoplatform/ci:jdk8-maven33         |    1.8.0_92  | Maven 3.3.9    |[![](https://badge.imagelayers.io/exoplatform/ci:jdk8-maven33.svg)](https://imagelayers.io/?images=exoplatform/ci:jdk8-maven33 'Get your own badge on imagelayers.io') | [goss.yaml](maven/jdk8-maven33/tests/goss.yaml)
+|    Image                            |  JDK         |   Build tool   |  Tests
+|-------------------------------------|--------------|----------------|------------
+| exoplatform/ci:base                 |   n/a        | n/a            | [goss.yaml](base/tests/goss.yaml)
+| exoplatform/ci:jdk6                 |   1.6.0_45   | n/a            | [goss.yaml](jdk/jdk6/tests/goss.yaml)
+| exoplatform/ci:jdk7                 |   1.7.0_79   | n/a            | [goss.yaml](jdk/jdk7/tests/goss.yaml)
+| exoplatform/ci:jdk8                 |   1.8.0_92   | n/a            | [goss.yaml](jdk/jdk8/tests/goss.yaml)
+| exoplatform/ci:jdk8-gradle2         |   1.8.0_92   | Gradle 2.14    | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)
+| exoplatform/ci:jdk8-gradle2-android |   1.8.0_92   | Gradle 2.14 / Android 23/24    | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
+| exoplatform/ci:jdk6-maven30         |   1.6.0_45   | Maven 3.0.5    | [goss.yaml](maven/jdk6-maven30/tests/goss.yaml)
+| exoplatform/ci:jdk6-maven32         |   1.6.0_45   | Maven 3.2.5    | [goss.yaml](maven/jdk6-maven32/tests/goss.yaml)
+| exoplatform/ci:jdk7-maven30         |   1.7.0_79   | Maven 3.0.5    | [goss.yaml](maven/jdk7-maven30/tests/goss.yaml)
+| exoplatform/ci:jdk7-maven32         |   1.7.0_79   | Maven 3.2.5    | [goss.yaml](maven/jdk7-maven32/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven30         |   1.8.0_92   | Maven 3.0.5    | [goss.yaml](maven/jdk8-maven30/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven32         |   1.8.0_92   | Maven 3.2.5    | [goss.yaml](maven/jdk8-maven32/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven33         |   1.8.0_92   | Maven 3.3.9    | [goss.yaml](maven/jdk8-maven33/tests/goss.yaml)
 
 ## Overview
 
