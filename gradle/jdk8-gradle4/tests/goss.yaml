@@ -1,0 +1,15 @@
+file:
+  /home/ciagent/.gradle:
+    title: Validating the presence of Gradle cache directory
+    exists: true
+package:
+  git:
+    installed: true
+    title: Check that git is installed
+command:
+  gradle --version:
+    exit-status: 0
+    stdout:
+    - Gradle 4.1
+    stderr: []
+    timeout: 0
