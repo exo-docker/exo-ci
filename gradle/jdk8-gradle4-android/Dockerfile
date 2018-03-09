@@ -18,7 +18,12 @@ RUN curl -L "${ANDROID_SDK_URL}" -o /tmp/sdk-tools-linux.zip \
 # Install Android SDK components
 RUN yes | /usr/local/android-sdk-linux/tools/bin/sdkmanager --update --channel=0
 RUN yes | /usr/local/android-sdk-linux/tools/bin/sdkmanager --list --channel=0
-RUN yes | /usr/local/android-sdk-linux/tools/bin/sdkmanager "platform-tools" "build-tools;26.0.3" "build-tools;27.0.3" --channel=0
+RUN yes | /usr/local/android-sdk-linux/tools/bin/sdkmanager \
+    "platform-tools" \
+    "build-tools;26.0.2" \
+    "build-tools;26.0.3" \
+    "build-tools;27.0.3" \
+    --channel=0
 RUN yes | /usr/local/android-sdk-linux/tools/bin/sdkmanager \
     "platforms;android-23" \ 
     "platforms;android-24" \
