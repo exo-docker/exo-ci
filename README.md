@@ -14,6 +14,8 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk8                 |   1.8.0_92   | n/a            | [goss.yaml](jdk/jdk8/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2         |   1.8.0_92   | Gradle 2.14    | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2-android |   1.8.0_92   | Gradle 2.14 / Android 23/24    | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
+| exoplatform/ci:jdk8-gradle4         |   1.8.0_92   | Gradle 4.1    | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)
+| exoplatform/ci:jdk8-gradle4-android |   1.8.0_92   | Gradle 4.1 / Android 23/24/25/26/27    | [goss.yaml](gradle/jdk8-gradle4-android/tests/goss.yaml)
 | exoplatform/ci:jdk6-maven30         |   1.6.0_45   | Maven 3.0.5    | [goss.yaml](maven/jdk6-maven30/tests/goss.yaml)
 | exoplatform/ci:jdk6-maven32         |   1.6.0_45   | Maven 3.2.5    | [goss.yaml](maven/jdk6-maven32/tests/goss.yaml)
 | exoplatform/ci:jdk7-maven30         |   1.7.0_79   | Maven 3.0.5    | [goss.yaml](maven/jdk7-maven30/tests/goss.yaml)
