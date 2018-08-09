@@ -1,6 +1,6 @@
 FROM phusion/baseimage:0.9.18
 
-MAINTAINER  eXo Platform <docker@exoplatform.com>
+LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
