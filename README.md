@@ -35,6 +35,7 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk8-maven30         |   1.8.0_92  | 2.7 & 3  | Maven 3.0.5    | [goss.yaml](maven/jdk8-maven30/tests/goss.yaml)
 | exoplatform/ci:jdk8-maven32         |   1.8.0_92  | 2.7 & 3  | Maven 3.2.5    | [goss.yaml](maven/jdk8-maven32/tests/goss.yaml)
 | exoplatform/ci:jdk8-maven33         |   1.8.0_92  | 2.7 & 3  | Maven 3.3.9    | [goss.yaml](maven/jdk8-maven33/tests/goss.yaml)
+| exoplatform/ci:jdk8-maven35         |   1.8.0_92  | 2.7 & 3  | Maven 3.5.4    | [goss.yaml](maven/jdk8-maven35/tests/goss.yaml)
 
 ## Overview
 
