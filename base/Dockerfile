@@ -3,6 +3,8 @@
 #   - Ubuntu 14.04
 #   - Base eXo CI Configuration
 #
+# build :   docker build -t exoplatform/ci:base .
+#
 
 FROM  phusion/baseimage:0.9.18
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
@@ -35,6 +37,9 @@ RUN apt-get -qq update && \
   add-apt-repository ppa:git-core/ppa && \
   apt-get update && \
   apt-get install git xmlstarlet -y && \
+  apt-get -y install \
+    make \
+    python2.7 -y && \
   apt-get -qq -y autoremove && \
   apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*
