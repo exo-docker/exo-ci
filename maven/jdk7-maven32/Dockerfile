@@ -1,3 +1,10 @@
+# Dockerizing a jdk7-maven32 images with:
+#
+#   - Oracle JDK 7
+#   - Maven 3.2
+#
+# build :   docker build -t exoplatform/ci:jdk7-maven32 .
+#
 FROM exoplatform/ci:jdk7
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 

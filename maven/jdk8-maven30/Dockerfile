@@ -1,3 +1,10 @@
+# Dockerizing a jdk8-maven30 images with:
+#
+#   - Oracle JDK 8
+#   - Maven 3.0
+#
+# build :   docker build -t exoplatform/ci:jdk8-maven30 .
+#
 FROM exoplatform/ci:jdk8
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 

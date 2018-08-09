@@ -1,3 +1,9 @@
+# Dockerizing a jdk6 images with:
+#
+#   - Oracle JDK 6
+#
+# build :   docker build -t exoplatform/ci:jdk6 .
+#
 FROM exoplatform/ci:base
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 

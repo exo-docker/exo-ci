@@ -1,5 +1,8 @@
+# Dockerizing a jdk7 images with:
 #
-# build : docker build -t exoplatform/ci:jdk7 .
+#   - Oracle JDK 7
+#
+# build :   docker build -t exoplatform/ci:jdk7 .
 #
 FROM exoplatform/ci:base
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"

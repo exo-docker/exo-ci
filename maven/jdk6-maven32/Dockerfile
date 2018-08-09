@@ -1,3 +1,10 @@
+# Dockerizing a jdk6-maven32 images with:
+#
+#   - Oracle JDK 6
+#   - Maven 3.2
+#
+# build :   docker build -t exoplatform/ci:jdk6-maven32 .
+#
 FROM exoplatform/ci:jdk6
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 

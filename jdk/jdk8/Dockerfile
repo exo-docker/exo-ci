@@ -1,3 +1,9 @@
+# Dockerizing a jdk8 images with:
+#
+#   - Oracle JDK 8
+#
+# build :   docker build -t exoplatform/ci:jdk8 .
+#
 FROM exoplatform/ci:base
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
