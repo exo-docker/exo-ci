@@ -10,7 +10,7 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 ENV TERM xterm
 
 ENV JDK_VERSION_MAJOR 7
-ENV JDK_VERSION_UPDATE 79
+ENV JDK_VERSION_UPDATE 80
 
 ENV JDK_VERSION ${JDK_VERSION_MAJOR}u${JDK_VERSION_UPDATE}
 ENV JDK_VERSION_DOT 1.${JDK_VERSION_MAJOR}.0
@@ -22,7 +22,6 @@ ENV JVM_DIR /usr/lib/jvm
 RUN mkdir -p "${JVM_DIR}"
 
 RUN wget -q --no-cookies --no-check-certificate \
-  --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
   -O "${DOWNLOAD_DIR}/jdk-${JDK_VERSION}-linux-x64.tar.gz" "${JDK_DOWNLOAD}" && \
   cd "${JVM_DIR}" && \
   tar -xzf "${DOWNLOAD_DIR}/jdk-${JDK_VERSION}-linux-x64.tar.gz" && \
