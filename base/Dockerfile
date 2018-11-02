@@ -40,6 +40,7 @@ RUN apt-get -qq update && \
   apt-get -y install \
     make \
     python2.7 -y && \
+  apt-get -y install build-essential && \  
   apt-get -qq -y autoremove && \
   apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*
