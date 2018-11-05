@@ -161,8 +161,17 @@ In order to quickly run build with different stack (Maven and JDK), you can conf
 # Run Maven commands in Containers
 
 c-mvn(){
+      mvnInContainer "exoplatform/ci:jdk8-maven35" "$@"
+}
+
+jdk8mvn35(){
+      mvnInContainer "exoplatform/ci:jdk8-maven35" "$@"
+}
+
+jdk8mvn33(){
       mvnInContainer "exoplatform/ci:jdk8-maven33" "$@"
 }
+
 jdk8mvn32(){
       mvnInContainer "exoplatform/ci:jdk8-maven32" "$@"
 }
@@ -210,5 +219,5 @@ docker run --name puppet-validation -it -v ${PWD}:/srv/ciagent/workspace \
 ```bash
 $ source ~/.bash_profile
 $ cd my-project
-$ jdk8mvn32 clean package
+$ jdk8mvn35 clean package
 ```
