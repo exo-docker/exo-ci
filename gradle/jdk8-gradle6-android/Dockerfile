@@ -1,4 +1,4 @@
-FROM exoplatform/ci:jdk8-gradle4
+FROM exoplatform/ci:jdk8-gradle6
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 USER root
