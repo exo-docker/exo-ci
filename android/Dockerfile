@@ -15,7 +15,7 @@ RUN apt-get install -y ruby ruby-dev gem build-essential less vim curl libcurl3-
 # Install ruby 2.4
 RUN apt-get install ruby2.4 ruby2.4-dev -y
 # Install bundler
-RUN gem install bundler:1.16.1
+RUN gem install bundler
 # Install fastlane
 RUN gem install fastlane -NV
 # Set fastlane as the entrypoint
