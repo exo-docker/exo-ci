@@ -1,4 +1,4 @@
-# Dockerizing a jdk11-maven36 images with:
+# Dockerizing a jdk11-maven38 images with:
 #
 #   - OpenJDK JDK 11
 #   - Maven 3.8
