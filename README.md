@@ -43,6 +43,7 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk11-maven33        |   11.0.11   | 2.7 & 3  | 4.8 | Maven 3.3.9    | [goss.yaml](maven/jdk11-maven33/tests/goss.yaml)
 | exoplatform/ci:jdk11-maven35        |   11.0.11   | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk11-maven35/tests/goss.yaml)
 | exoplatform/ci:jdk11-maven36        |   11.0.11   | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk11-maven36/tests/goss.yaml)
+| exoplatform/ci:jdk11-maven38        |   11.0.11   | 2.7 & 3  | 4.8 | Maven 3.8.1    | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)
 
 ## Overview
 
