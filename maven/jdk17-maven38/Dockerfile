@@ -1,11 +1,11 @@
-# Dockerizing a jdk11-maven38 images with:
+# Dockerizing a jdk17-maven38 images with:
 #
-#   - OpenJDK JDK 11
+#   - OpenJDK JDK 17
 #   - Maven 3.8
 #
-# build :   docker build -t exoplatform/ci:jdk11-maven38 .
+# build :   docker build -t exoplatform/ci:jdk17-maven38 .
 #
-FROM exoplatform/ci:jdk11
+FROM exoplatform/ci:jdk17
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version

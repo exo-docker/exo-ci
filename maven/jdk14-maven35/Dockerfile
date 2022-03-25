@@ -1,15 +1,15 @@
-# Dockerizing a jdk11-maven38 images with:
+# Dockerizing a jdk14-maven35 images with:
 #
-#   - OpenJDK JDK 11
-#   - Maven 3.8
+#   - OpenJDK JDK 14
+#   - Maven 3.5
 #
-# build :   docker build -t exoplatform/ci:jdk11-maven38 .
+# build :   docker build -t exoplatform/ci:jdk14-maven35 .
 #
-FROM exoplatform/ci:jdk11
+FROM exoplatform/ci:jdk14
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEN_VERSION 3.8.5
+ENV MAVEN_VERSION 3.5.4
 # Install Maven
 RUN mkdir -p /usr/share/maven \
     && curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
