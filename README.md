@@ -25,6 +25,8 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk7                 |   1.7.0_80  | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk7/tests/goss.yaml)
 | exoplatform/ci:jdk8                 |   1.8.0_181 | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk8/tests/goss.yaml)
 | exoplatform/ci:jdk11                |   11.0.14   | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk11/tests/goss.yaml)
+| exoplatform/ci:jdk14                |   14.0.2    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk14/tests/goss.yaml)
+| exoplatform/ci:jdk17                |   17.0.1    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2         |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 2.14    | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2-android |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 2.14 / Android 23/24    | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle4         |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 4.1    | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)
