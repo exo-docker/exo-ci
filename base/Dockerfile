@@ -1,12 +1,12 @@
 # Dockerizing a base images with:
 #
-#   - Ubuntu 14.04
+#   - Ubuntu 20.04
 #   - Base eXo CI Configuration
 #
 # build :   docker build -t exoplatform/ci:base .
 #
 
-FROM  phusion/baseimage:0.9.18
+FROM  phusion/baseimage:focal-1.2.0
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 ENV TERM xterm
@@ -40,7 +40,7 @@ RUN apt-get -qq update && \
   apt-get -y install \
     make \
     python2.7 -y && \
-  apt-get -y install build-essential && \  
+  apt-get -y install build-essential sudo && \  
   apt-get -qq -y autoremove && \
   apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*
