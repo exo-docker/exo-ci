@@ -45,6 +45,20 @@ RUN apt-get -qq update && \
   apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*
 
+# Install yq + gh (Github CLI)
+RUN wget -nv -q -O /usr/bin/yq https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64 && \
+  echo "fe08cd1b6c23c8c5bf4f94e0f9d4b5b2 /usr/bin/yq" | md5sum -c - \
+  || { \
+  echo "ERROR: the [/usr/bin/yq] binary downloaded from a github release was modified while is should not !!"; \
+  return 1; \
+  } && chmod a+x /usr/bin/yq
+
+# Migrate to APT Keyring when moving to ubuntu 20.04+ https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+RUN  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 23F3D4EA75716059 \
+  && apt-add-repository -y https://cli.github.com/packages \
+  && apt-get -qq update \
+  && apt-get -qq -y install gh
+
 # Add some aliases
 RUN echo "alias ll='ls -al --color'" > /etc/profile.d/aliases.sh
 
