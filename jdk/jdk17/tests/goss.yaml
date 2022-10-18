@@ -11,5 +11,5 @@ command:
     exit-status: 0
     stdout: []
     stderr:
-    - java version "17.0.1"
+    - java version "17.0.2"
     timeout: 0
