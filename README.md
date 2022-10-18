@@ -25,8 +25,6 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk7                 |   1.7.0_80  | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk7/tests/goss.yaml)
 | exoplatform/ci:jdk8                 |   1.8.0_181 | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk8/tests/goss.yaml)
 | exoplatform/ci:jdk11                |   11.0.14   | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk11/tests/goss.yaml)
-| exoplatform/ci:jdk14                |   14.0.2    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk14/tests/goss.yaml)
-| exoplatform/ci:jdk17                |   17.0.1    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2         |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 2.14    | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2-android |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 2.14 / Android 23/24    | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle4         |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 4.1    | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)
@@ -45,17 +43,7 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk11-maven33        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.3.9    | [goss.yaml](maven/jdk11-maven33/tests/goss.yaml)
 | exoplatform/ci:jdk11-maven35        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk11-maven35/tests/goss.yaml)
 | exoplatform/ci:jdk11-maven36        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk11-maven36/tests/goss.yaml)
-| exoplatform/ci:jdk11-maven38        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.8.5    | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)
-| exoplatform/ci:jdk14-maven32        |   14.0.2   | 2.7 & 3  | 4.8 | Maven 3.2.5    | [goss.yaml](maven/jdk14-maven32/tests/goss.yaml)
-| exoplatform/ci:jdk14-maven33        |   14.0.2   | 2.7 & 3  | 4.8 | Maven 3.3.9    | [goss.yaml](maven/jdk14-maven33/tests/goss.yaml)
-| exoplatform/ci:jdk14-maven35        |   14.0.2   | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk14-maven35/tests/goss.yaml)
-| exoplatform/ci:jdk14-maven36        |   14.0.2   | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk14-maven36/tests/goss.yaml)
-| exoplatform/ci:jdk14-maven38        |   14.0.2   | 2.7 & 3  | 4.8 | Maven 3.8.5    | [goss.yaml](maven/jdk14-maven38/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven32        |   17.0.1   | 2.7 & 3  | 4.8 | Maven 3.2.5    | [goss.yaml](maven/jdk17-maven32/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven33        |   17.0.1   | 2.7 & 3  | 4.8 | Maven 3.3.9    | [goss.yaml](maven/jdk17-maven33/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven35        |   17.0.1   | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk17-maven35/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven36        |   17.0.1   | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk17-maven36/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven38        |   17.0.1   | 2.7 & 3  | 4.8 | Maven 3.8.5    | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)
+| exoplatform/ci:jdk11-maven38        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.8.6    | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)
 
 ## Overview
 
