@@ -44,11 +44,13 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk11-maven35        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk11-maven35/tests/goss.yaml)
 | exoplatform/ci:jdk11-maven36        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk11-maven36/tests/goss.yaml)
 | exoplatform/ci:jdk11-maven38        |   11.0.14   | 2.7 & 3  | 4.8 | Maven 3.8.6    | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven32        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.2.5    | [goss.yaml](maven/jdk11-maven32/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven33        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.3.9    | [goss.yaml](maven/jdk11-maven33/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven35        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk11-maven35/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven36        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk11-maven36/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven38        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.8.6    | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)
+| exoplatform/ci:jdk11-mavend08       |   11.0.14   | 2.7 & 3  | 4.8 | Mavend 0.8.2   | [goss.yaml](mavend/jdk11-mavend08/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven32        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.2.5    | [goss.yaml](maven/jdk17-maven32/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven33        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.3.9    | [goss.yaml](maven/jdk17-maven33/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven35        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.5.4    | [goss.yaml](maven/jdk17-maven35/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven36        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.6.3    | [goss.yaml](maven/jdk17-maven36/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven38        |   17.0.2    | 2.7 & 3  | 4.8 | Maven 3.8.6    | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)
+| exoplatform/ci:jdk17-mavend08       |   17.0.2    | 2.7 & 3  | 4.8 | Mavend 0.8.2   | [goss.yaml](mavend/jdk17-mavend08/tests/goss.yaml)
 
 ## Overview
 
