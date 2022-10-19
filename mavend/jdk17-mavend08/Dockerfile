@@ -14,7 +14,8 @@ ENV MAVEND_VERSION 0.8.2
 RUN mkdir -p /usr/share/mavend \
     && curl -fsSL http://archive.apache.org/dist/maven/mvnd/${MAVEND_VERSION}/maven-mvnd-${MAVEND_VERSION}-linux-amd64.tar.gz  \
          | tar xzf - -C /usr/share/mavend --strip-components=1  \
-    && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvnd
+    && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvnd \
+    && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvn
 
 # Workaround to be able to execute others command than "mvn" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
