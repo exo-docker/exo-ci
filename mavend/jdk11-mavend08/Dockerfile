@@ -17,6 +17,9 @@ RUN mkdir -p /usr/share/mavend \
     && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvnd \
     && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvn
 
+# Remove default mirrors including http blocked mirrors
+RUN sed -i -e "/<mirrors>/,/<\/mirrors>/ d" /usr/share/mavend/conf/settings.xml
+
 # Workaround to be able to execute others command than "mvn" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint \
