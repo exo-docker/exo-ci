@@ -16,9 +16,6 @@ RUN mkdir -p /usr/share/maven \
          | tar xzf - -C /usr/share/maven --strip-components=1  \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
-# Remove default mirrors including http blocked mirrors
-RUN sed -i -e "/<mirrors>/,/<\/mirrors>/ d" /usr/share/maven/conf/settings.xml
-
 # Workaround to be able to execute others command than "mvn" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint \
