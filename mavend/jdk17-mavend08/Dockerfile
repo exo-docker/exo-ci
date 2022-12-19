@@ -17,8 +17,6 @@ RUN mkdir -p /usr/share/mavend \
     && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvnd \
     && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvn
 
-ADD settings.xml /usr/share/mavend/conf/
-
 # Workaround to be able to execute others command than "mvn" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint \
