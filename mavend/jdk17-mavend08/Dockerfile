@@ -9,7 +9,7 @@ FROM exoplatform/ci:jdk17
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEND_VERSION 0.8.2
+ENV MAVEND_VERSION 0.8.3
 # Install Mavend
 RUN mkdir -p /usr/share/mavend \
     && curl -fsSL http://archive.apache.org/dist/maven/mvnd/${MAVEND_VERSION}/maven-mvnd-${MAVEND_VERSION}-linux-amd64.tar.gz  \
@@ -26,7 +26,7 @@ USER ${EXO_CI_USER}
 
 # Custom configuration for Mavend
 ENV M2_HOME=/usr/share/mavend
-ENV MAVEN_OPTS="-Dmaven.repo.local=${HOME}/.m2/repository -Xms1G -Xmx2G -XX:MaxMetaspaceSize=1G -Dcom.sun.media.jai.disableMediaLib=true -Djava.io.tmpdir=${EXO_CI_TMP_DIR} -Dmaven.artifact.threads=10 -Djava.awt.headless=true --add-opens=java.base/java.util=ALL-UNNAMED"
+ENV MAVEN_OPTS="-Dmaven.repo.local=${HOME}/.m2/repository -Xms1G -Xmx2G -XX:MaxMetaspaceSize=1G -Dcom.sun.media.jai.disableMediaLib=true -Djava.io.tmpdir=${EXO_CI_TMP_DIR} -Dmaven.artifact.threads=10 -Djava.awt.headless=true --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED"
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 # Create needed directories for Mavend & git
