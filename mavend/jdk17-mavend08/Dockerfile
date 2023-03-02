@@ -9,7 +9,7 @@ FROM exoplatform/ci:jdk17
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEND_VERSION 0.8.3
+ENV MAVEND_VERSION 0.8.2
 # Install Mavend
 RUN mkdir -p /usr/share/mavend \
     && curl -fsSL http://archive.apache.org/dist/maven/mvnd/${MAVEND_VERSION}/maven-mvnd-${MAVEND_VERSION}-linux-amd64.tar.gz  \
