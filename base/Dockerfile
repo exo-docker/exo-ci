@@ -41,10 +41,15 @@ RUN apt-get -qq update && \
     make \
     python2.7 -y && \
   apt-get -y install build-essential && \  
-  apt-get -qq -y autoremove && \
-  apt-get -qq -y clean && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get -qq -y autoremove
 
+# Install git lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+
+RUN apt-get install git-lfs
+
+RUN apt-get -qq -y clean && \
+  rm -rf /var/lib/apt/lists/*
 # Install yq + gh (Github CLI)
 RUN wget -nv -q -O /usr/bin/yq https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64 && \
   echo "fe08cd1b6c23c8c5bf4f94e0f9d4b5b2 /usr/bin/yq" | md5sum -c - \
