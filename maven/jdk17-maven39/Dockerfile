@@ -1,15 +1,15 @@
-# Dockerizing a jdk17-maven36 images with:
+# Dockerizing a jdk17-maven39 images with:
 #
 #   - OpenJDK JDK 17
-#   - Maven 3.6
+#   - Maven 3.9
 #
-# build :   docker build -t exoplatform/ci:jdk17-maven36 .
+# build :   docker build -t exoplatform/ci:jdk17-maven39 .
 #
 FROM exoplatform/ci:jdk17
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEN_VERSION 3.6.3
+ENV MAVEN_VERSION 3.9.2
 # Install Maven
 RUN mkdir -p /usr/share/maven \
     && curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
