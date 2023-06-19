@@ -12,7 +12,7 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 # Install some useful or needed tools
 RUN apk update && \
   apk upgrade && \
-  apk add --no-cache xmlstarlet jq bash wget curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed yq gnupg
+  apk add --no-cache xmlstarlet jq bash wget curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed yq gnupg openssh openssl
 
 ENV TERM xterm
 
