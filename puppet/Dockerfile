@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.18
+FROM phusion/baseimage:bionic-1.0.0
 
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
@@ -19,6 +19,9 @@ ENV EXO_CI_DATA_DIR   ${EXO_CI_BASE}/workspace
 ENV EXO_CI_LOG_DIR    ${EXO_CI_BASE}/logs
 ENV EXO_CI_TMP_DIR    ${EXO_CI_BASE}/tmp
 
+RUN apt-get update && \
+  apt-get install -y sudo gnupg curl ca-certificates git
+
 # Create user and group with specific ids
 RUN useradd --create-home --user-group -u 13000 --shell /bin/bash ${EXO_CI_USER}
 # giving all rights to eXo CI user
@@ -30,15 +33,14 @@ RUN mkdir -p ${EXO_CI_DATA_DIR}  \
    && mkdir -p ${EXO_CI_LOG_DIR} \
    && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_BASE}
 
-# Install Git (required for Maven plugins)
-RUN  echo "# Sources for recent versions of puppet" > /etc/apt/sources.list.d/puppet.list && \
-  echo "deb http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppet.list && \
-  echo "deb-src http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppet.list && \
-  sudo gpg --keyserver keyserver.ubuntu.com --recv-key 7F438280EF8D349F && \
-  sudo gpg -a --export 7F438280EF8D349F | sudo apt-key add - && \
+# Install puppetlab repository
+RUN curl -fsSL https://apt.puppetlabs.com/keyring.gpg | gpg --batch --yes --dearmor -o /usr/share/keyrings/puppet-keyring.gpg && \
+  echo "# Sources for recent versions of puppet" > /etc/apt/sources.list.d/puppetlab.list && \
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/puppet-keyring.gpg] http://apt.puppetlabs.com $(lsb_release -c -s) main dependencies" >> /etc/apt/sources.list.d/puppetlab.list && \
   apt-get update && \
-  apt-get install -y puppet git
-RUN gem install r10k -v 2.0.3
+  apt-get install -y puppet
+
+RUN gem install r10k -v 2.3.0
 
 RUN apt-get -qq -y autoremove && \
   apt-get -qq -y clean && \
