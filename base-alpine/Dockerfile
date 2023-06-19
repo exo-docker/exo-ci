@@ -22,6 +22,9 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 RUN fc-cache -f
 
+# Specify primary prompt string for bash navigation
+ENV PS1                    "\u@\h:\w$ "
+
 # Add some aliases
 RUN echo "alias ll='ls -al --color'" > /etc/profile.d/aliases.sh
 
