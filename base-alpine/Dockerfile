@@ -12,7 +12,7 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 # Install some useful or needed tools
 RUN apk update && \
   apk upgrade && \
-  apk add --no-cache xmlstarlet jq bash wget curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed
+  apk add --no-cache xmlstarlet jq bash wget curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed yq
 
 ENV TERM xterm
 
@@ -21,14 +21,6 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 RUN fc-cache -f
-
-# Install yq
-RUN wget -nv -q -O /usr/bin/yq https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64 && \
-  echo "fe08cd1b6c23c8c5bf4f94e0f9d4b5b2 /usr/bin/yq" | md5sum -c - \
-  || { \
-  echo "ERROR: the [/usr/bin/yq] binary downloaded from a github release was modified while is should not !!"; \
-  return 1; \
-  } && chmod a+x /usr/bin/yq
 
 # Add some aliases
 RUN echo "alias ll='ls -al --color'" > /etc/profile.d/aliases.sh
