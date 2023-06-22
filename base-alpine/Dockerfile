@@ -9,10 +9,15 @@
 FROM  alpine:3.18
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
+RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
+RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-2.35-r1.apk
+RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-bin-2.35-r1.apk
+
 # Install some useful or needed tools
 RUN apk update && \
   apk upgrade && \
-  apk add --no-cache xmlstarlet jq bash wget curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed grep yq gnupg openssh openssl msttcorefonts-installer fontconfig
+  apk add --no-cache xmlstarlet jq bash curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed grep yq \
+                     gnupg openssh openssl msttcorefonts-installer fontconfig ca-certificates libcurl build-base openssl1.1-compat glibc-2.35-r1.apk glibc-bin-2.35-r1.apk
 
 RUN update-ms-fonts
 
