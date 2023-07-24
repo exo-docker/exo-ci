@@ -27,7 +27,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # --force-confdef to let dpkg overwrite configuration files that you have not modified.
 ENV _APT_OPTIONS -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 RUN apt-get -qq update && \
-  apt-get -qq -y upgrade ${_APT_OPTIONS} && \
+  apt-get -qq -y full-upgrade ${_APT_OPTIONS} && \
   apt-get -qq -y install ${_APT_OPTIONS} \
     wget \
     curl \
@@ -36,7 +36,7 @@ RUN apt-get -qq update && \
     unzip && \
   add-apt-repository ppa:git-core/ppa && \
   apt-get update && \
-  apt-get install git xmlstarlet -y && \
+  apt-get install git xmlstarlet openssl libssl-dev -y && \
   apt-get -y install \
     make \
     python2.7 -y && \
