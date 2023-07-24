@@ -14,7 +14,7 @@ command:
     exit-status: 0
     stdout:
     - 0.8.2
-    - 11.0.19
+    - 11.0.20
     - "Default locale: en_US, platform encoding: UTF-8"
     stderr: []
     timeout: 0
