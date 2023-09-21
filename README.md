@@ -54,9 +54,9 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17-maven38        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.8.8    | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)
 | exoplatform/ci:jdk17-mavend08       |   17.0.8    | 2.7 & 3  | 4.8 | Mavend 0.8.2   | [goss.yaml](mavend/jdk17-mavend08/tests/goss.yaml)
 | exoplatform/ci:jdk17-mavend09       |   17.0.8    | 2.7 & 3  | 4.8 | Mavend 0.9.0   | [goss.yaml](mavend/jdk17-mavend09/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven39        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.3    | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven39-alpine |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.3    | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)
-| exoplatform/ci:jdk21-maven39-ubuntu20 |   21      | 2.7 & 3  | 4.8 | Maven 3.9.3    | [goss.yaml](maven/jdk21-maven39-alpine/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven39        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.4   | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven39-alpine |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.4   | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)
+| exoplatform/ci:jdk21-maven39-ubuntu20 |   21      | 2.7 & 3  | 4.8 | Maven 3.9.4   | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)
 
 
 ## Overview
@@ -183,26 +183,25 @@ In order to quickly run build with different stack (Maven and JDK), you can conf
 # Run Maven commands in Containers
 
 c-mvn(){
-      mvnInContainer "exoplatform/ci:jdk8-maven33" "$@"
+      mvnInContainer "exoplatform/ci:jdk21-maven39-ubuntu20" "$@"
 }
-jdk8mvn32(){
-      mvnInContainer "exoplatform/ci:jdk8-maven32" "$@"
+jdk17mvn39 (){
+      mvnInContainer "exoplatform/ci:jdk17-maven39-ubuntu20" "$@"
+}
+jdk17mvn38(){
+      mvnInContainer "exoplatform/ci:jdk17-maven38" "$@"
 }
 
-jdk8mvn30(){
-      mvnInContainer "exoplatform/ci:jdk8-maven30" "$@"
+jdk11mvn38(){
+      mvnInContainer "exoplatform/ci:jdk11-maven38" "$@"
+}
+
+jdk8mvn35(){
+      mvnInContainer "exoplatform/ci:jdk8-maven35" "$@"
 }
 
 jdk7mvn32(){
       mvnInContainer "exoplatform/ci:jdk7-maven32" "$@"
-}
-
-jdk7mvn30(){
-      mvnInContainer "exoplatform/ci:jdk7-maven30" "$@"
-}
-
-jdk6mvn30(){
-      mvnInContainer "exoplatform/ci:jdk6-maven30" "$@"
 }
 
 # Run Maven commands in a container
@@ -210,14 +209,12 @@ mvnInContainer(){
       local dockerImage=$1
 
       docker run --rm \
+        -u $(id -u):$(id -g) \
         -v $(pwd):/srv/ciagent/workspace \
-        -v ~/.gnupg/gpg.conf:/home/ciagent/.gnupg/gpg.conf:ro \
-        -v ~/.gnupg/pubring.gpg:/home/ciagent/.gnupg/pubring.gpg:ro \
-        -v ~/.gnupg/secring.gpg:/home/ciagent/.gnupg/secring.gpg:ro \
-        -v ~/.gnupg/trustdb.gpg:/home/ciagent/.gnupg/trustdb.gpg:ro \
-        -v ~/.gnupg:/home/ciagent/.gnupg \
         -v ~/.m2/repository:/home/ciagent/.m2/repository \
         -v ~/.m2/settings.xml:/home/ciagent/.m2/settings.xml \
+        -v ~/.m2/settings-security.xml:/home/ciagent/.m2/settings-security.xml \
+        -v /tmp:/srv/ciagent/tmp \
         --workdir /srv/ciagent/workspace \
         ${dockerImage} "${@:2}"
 }
