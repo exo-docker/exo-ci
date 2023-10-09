@@ -54,9 +54,9 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17-maven38        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.8.8    | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)
 | exoplatform/ci:jdk17-mavend08       |   17.0.8    | 2.7 & 3  | 4.8 | Mavend 0.8.2   | [goss.yaml](mavend/jdk17-mavend08/tests/goss.yaml)
 | exoplatform/ci:jdk17-mavend09       |   17.0.8    | 2.7 & 3  | 4.8 | Mavend 0.9.0   | [goss.yaml](mavend/jdk17-mavend09/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven39        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.4   | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)
-| exoplatform/ci:jdk17-maven39-alpine |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.4   | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)
-| exoplatform/ci:jdk21-maven39-ubuntu20 |   21      | 2.7 & 3  | 4.8 | Maven 3.9.4   | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven39        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven39-alpine |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)
+| exoplatform/ci:jdk21-maven39-ubuntu20 |   21      | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)
 
 
 ## Overview
