@@ -22,8 +22,9 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
-      dockerHubUsername: ${{ secrets.DOCKER_USERNAME }}
-      dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
   build-jdk-images:
     name: "Build JDK Images"
@@ -49,8 +50,9 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
-      dockerHubUsername: ${{ secrets.DOCKER_USERNAME }}
-      dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
   build-maven-images:
     name: "Build Maven Images"
@@ -88,5 +90,6 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
-      dockerHubUsername: ${{ secrets.DOCKER_USERNAME }}
-      dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
