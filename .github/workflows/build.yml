@@ -1,0 +1,89 @@
+name: Build & publish eXo CI images
+on:
+  schedule:
+    - cron:  '0 22 * * 5' # Every Friday at 10 PM UTC
+  workflow_dispatch:
+
+jobs:
+  build-base-images:
+    name: "Build Base Images"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - imageTag: base
+            context: base
+          - imageTag: base-alpine
+            context: base-alpine
+          - imageTag: base-ubuntu20
+            context: base-ubuntu20
+    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
+    with:
+      dockerImage: "exoplatform/ci"
+      dockerImageTag: ${{ matrix.imageTag }}
+      dockerFileContext: ${{ matrix.context }}
+    secrets: inherit
+
+  build-jdk-images:
+    name: "Build JDK Images"
+    needs: build-base-images
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - imageTag: jdk8
+            context: jdk/jdk8
+          - imageTag: jdk11
+            context: jdk/jdk11
+          - imageTag: jdk17
+            context: jdk/jdk17
+          - imageTag: jdk17-alpine
+            context: jdk/jdk17-alpine
+          - imageTag: jdk17-ubuntu20
+            context: jdk/jdk17-ubuntu20
+          - imageTag: jdk21-ubuntu20
+            context: jdk/jdk21-ubuntu20
+    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
+    with:
+      dockerImage: "exoplatform/ci"
+      dockerImageTag: ${{ matrix.imageTag }}
+      dockerFileContext: ${{ matrix.context }}
+    secrets: inherit
+
+  build-maven-images:
+    name: "Build Maven Images"
+    needs: build-jdk-images
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - imageTag: jdk8-maven33
+            context: maven/jdk8-maven33
+          - imageTag: jdk8-maven35
+            context: maven/jdk8-maven35
+          - imageTag: jdk11-maven33
+            context: maven/jdk11-maven33
+          - imageTag: jdk11-maven35
+            context: maven/jdk11-maven35
+          - imageTag: jdk11-maven36
+            context: maven/jdk11-maven36
+          - imageTag: jdk11-maven38
+            context: maven/jdk11-maven38
+          - imageTag: jdk17-maven36
+            context: maven/jdk17-maven36
+          - imageTag: jdk17-maven38
+            context: maven/jdk17-maven38
+          - imageTag: jdk17-maven39
+            context: maven/jdk17-maven39
+          - imageTag: jdk17-maven39-alpine
+            context: maven/jdk17-maven39-alpine
+          - imageTag: jdk17-maven39-ubuntu20
+            context: maven/jdk17-maven39-ubuntu20
+          - imageTag: jdk21-maven39-ubuntu20
+            context: maven/jdk21-maven39-ubuntu20
+    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
+    with:
+      dockerImage: "exoplatform/ci"
+      dockerImageTag: ${{ matrix.imageTag }}
+      dockerFileContext: ${{ matrix.context }}
+    secrets: inherit
