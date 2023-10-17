@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD014 -->
 ![Docker Stars](https://img.shields.io/docker/stars/exoplatform/ci.svg) - ![Docker Pulls](https://img.shields.io/docker/pulls/exoplatform/ci.svg)
-
+[![Build & publish eXo CI images](https://github.com/exo-docker/exo-ci/actions/workflows/build.yml/badge.svg)](https://github.com/exo-docker/exo-ci/actions/workflows/build.yml)
 - [Overview](#overview)
 - [How to execute tests](#how-to-execute-tests)
 - [How to use a eXo CI Docker Image](#how-to-use-a-exo-ci-docker-image)
