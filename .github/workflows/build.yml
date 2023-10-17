@@ -22,9 +22,13 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
+      signImage: true
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-jdk-images:
     name: "Build JDK Images"
@@ -50,9 +54,13 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
+      signImage: true
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-maven-images:
     name: "Build Maven Images"
@@ -90,6 +98,10 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
+      signImage: true
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
