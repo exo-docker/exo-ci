@@ -1,11 +1,11 @@
-# Dockerizing a jdk17-maven39-ubuntu22 images with:
+# Dockerizing a jdk21-maven39-ubuntu22 images with:
 #   - ubuntu22
-#   - OpenJDK JDK 17
+#   - OpenJDK JDK 21
 #   - Maven 3.9
 #
-# build :   docker build -t exoplatform/ci:jdk17-maven39-ubuntu22 .
+# build :   docker build -t exoplatform/ci:jdk21-maven39-ubuntu22 .
 #
-FROM exoplatform/ci:jdk17-ubuntu22
+FROM exoplatform/ci:jdk21-ubuntu22
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version

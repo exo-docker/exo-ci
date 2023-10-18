@@ -17,6 +17,8 @@ jobs:
             context: base-alpine
           - imageTag: base-ubuntu20
             context: base-ubuntu20
+          - imageTag: base-ubuntu22
+            context: base-ubuntu22
     uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
     with:
       dockerImage: "exoplatform/ci"
@@ -47,8 +49,12 @@ jobs:
             context: jdk/jdk17-alpine
           - imageTag: jdk17-ubuntu20
             context: jdk/jdk17-ubuntu20
+          - imageTag: jdk17-ubuntu22
+            context: jdk/jdk17-ubuntu22
           - imageTag: jdk21-ubuntu20
             context: jdk/jdk21-ubuntu20
+          - imageTag: jdk21-ubuntu22
+            context: jdk/jdk21-ubuntu22
     uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
     with:
       dockerImage: "exoplatform/ci"
@@ -91,8 +97,14 @@ jobs:
             context: maven/jdk17-maven39-alpine
           - imageTag: jdk17-maven39-ubuntu20
             context: maven/jdk17-maven39-ubuntu20
+          - imageTag: jdk17-maven39-ubuntu22
+            context: maven/jdk17-maven39-ubuntu22
           - imageTag: jdk21-maven39-ubuntu20
             context: maven/jdk21-maven39-ubuntu20
+          - imageTag: jdk21-maven39-ubuntu20
+            context: maven/jdk21-maven39-ubuntu20
+          - imageTag: jdk21-maven39-ubuntu22
+            context: maven/jdk21-maven39-ubuntu22
     uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
     with:
       dockerImage: "exoplatform/ci"

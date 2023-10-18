@@ -22,6 +22,8 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 |-------------------------------------|-------------|----------|-----|----------------|------------
 | exoplatform/ci:base                 |   n/a       | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](base/tests/goss.yaml)
 | exoplatform/ci:base-alpine          |   n/a       | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](base-alpine/tests/goss.yaml)
+| exoplatform/ci:base-ubuntu20        |   n/a       | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](base-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:base-ubuntu22        |   n/a       | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](base-ubuntu22/tests/goss.yaml)
 | exoplatform/ci:jdk6                 |   1.6.0_45  | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk6/tests/goss.yaml)
 | exoplatform/ci:jdk7                 |   1.7.0_80  | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk7/tests/goss.yaml)
 | exoplatform/ci:jdk8                 |   1.8.0_181 | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk8/tests/goss.yaml)
@@ -30,6 +32,7 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17-alpine         |   17.0.8    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17-alpine/tests/goss.yaml)
 | exoplatform/ci:jdk17-ubuntu20       |   17.0.8    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17-ubuntu20/tests/goss.yaml)
 | exoplatform/ci:jdk21-ubuntu20       |   21        | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/21-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:jdk21-ubuntu22       |   21        | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/21-ubuntu22/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2         |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 2.14    | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2-android |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 2.14 / Android 23/24    | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle4         |   1.8.0_181 | 2.7 & 3  | 4.8 | Gradle 4.1    | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)
@@ -56,7 +59,10 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17-mavend09       |   17.0.8    | 2.7 & 3  | 4.8 | Mavend 0.9.0   | [goss.yaml](mavend/jdk17-mavend09/tests/goss.yaml)
 | exoplatform/ci:jdk17-maven39        |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)
 | exoplatform/ci:jdk17-maven39-alpine |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven39-ubuntu20 |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk17-maven39-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:jdk17-maven39-ubuntu22 |   17.0.8    | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk17-maven39-ubuntu22/tests/goss.yaml)
 | exoplatform/ci:jdk21-maven39-ubuntu20 |   21      | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:jdk21-maven39-ubuntu22 |   21      | 2.7 & 3  | 4.8 | Maven 3.9.5   | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)
 
 
 ## Overview

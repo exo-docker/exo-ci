@@ -1,0 +1,29 @@
+file:
+  /root/.config/htop/htoprc:
+    title: Validating the presence of htop conf file
+    exists: true
+  /home/ciagent:
+    title: Validating the home path for eXo CI Agent user
+    exists: true
+package:
+  git:
+    installed: true
+    title: Check that git is installed
+  make:
+    installed: true
+    title: Check that make is installed
+  python2.7:
+    installed: true
+    title: Check that Python 2.7 is installed
+  python3:
+    installed: true
+    title: Check that Python 3 is installed
+  sed:
+    installed: true
+    title: Check that sed is installed
+  unzip:
+    installed: true
+    title: Check that unzip is installed
+  wget:
+    installed: true
+    title: Check that wget is installed

@@ -24,10 +24,10 @@
     "linux_url": "https://github.com/ethereum/solidity/releases/download/v0.4.19/solc-static-linux"
     },
     {
-    "version": "0.4.22",
-    "windows_url": "https://github.com/ethereum/solidity/releases/download/v0.4.22/solidity-windows.zip",
+    "version": "0.4.20",
+    "windows_url": "https://github.com/ethereum/solidity/releases/download/v0.4.20/solidity-windows.zip",
     "mac_url": "",
-    "linux_url": "https://github.com/ethereum/solidity/releases/download/v0.4.22/solc-static-linux"
+    "linux_url": "https://github.com/ethereum/solidity/releases/download/v0.4.20/solc-static-linux"
     },
     {
     "version": "0.4.21",
