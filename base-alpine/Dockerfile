@@ -1,18 +1,19 @@
 # Dockerizing a base images with:
 #
-#   - alpine 3.18
+#   - alpine 3.17
 #   - Base eXo CI Configuration
 #
 # build :   docker build -t exoplatform/ci:base-alpine .
 #
 
-FROM  alpine:3.18
+FROM  frolvlad/alpine-glibc:alpine-3.17
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # Install some useful or needed tools
 RUN apk update && \
   apk upgrade && \
-  apk add --no-cache xmlstarlet jq bash wget curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed grep yq gnupg openssh openssl msttcorefonts-installer fontconfig
+  apk add --no-cache xmlstarlet jq bash curl htop unzip git git-lfs make python3 sudo xterm github-cli expect busybox sed grep yq \
+                     gnupg openssh openssl msttcorefonts-installer fontconfig ca-certificates libcurl build-base openssl1.1-compat
 
 RUN update-ms-fonts
 
