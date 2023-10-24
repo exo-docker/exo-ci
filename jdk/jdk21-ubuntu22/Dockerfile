@@ -9,9 +9,9 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 ENV TERM xterm
 
-ENV JDK_VERSION 21
+ENV JDK_VERSION 21.0.1
 ENV JDK_MAJOR_VERSION 21
-ENV TEMURIN_SUFFIX 35
+ENV TEMURIN_SUFFIX 12
 
 ENV JDK_DOWNLOAD http://storage.exoplatform.org/public/java/jdk/openjdk/${JDK_VERSION}/openjdk-${JDK_VERSION}_linux-x64_bin.tar.gz
 
