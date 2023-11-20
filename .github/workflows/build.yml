@@ -24,7 +24,7 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
-      signImage: true
+      signImage: false
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -60,7 +60,7 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
-      signImage: true
+      signImage: false
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -110,7 +110,7 @@ jobs:
       dockerImage: "exoplatform/ci"
       dockerImageTag: ${{ matrix.imageTag }}
       dockerFileContext: ${{ matrix.context }}
-      signImage: true
+      signImage: false
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
