@@ -38,6 +38,9 @@ RUN mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.gnupg \
     && chmod 700 ${HOME}/.gnupg 
 
+# Increase npm packages fetch timeout
+RUN echo 'fetch-retry-maxtimeout=6000000\nfetch-retry-mintimeout=1000000' > ${HOME}/.npmrc
+
 WORKDIR ${EXO_CI_DATA_DIR}
 
 # Workaround to be able to execute others command than "mvn" as entrypoint
