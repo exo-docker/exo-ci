@@ -1,5 +1,5 @@
 # Dockerizing a jdk17-maven39-alpine images with:
-#   - alpine 3.18
+#   - alpine 3.19
 #   - OpenJDK JDK 17
 #   - Maven 3.9
 #
