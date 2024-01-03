@@ -99,12 +99,16 @@ jobs:
             context: maven/jdk17-maven39-ubuntu20
           - imageTag: jdk17-maven39-ubuntu22
             context: maven/jdk17-maven39-ubuntu22
+          - imageTag: jdk17-maven40-ubuntu22
+            context: maven/jdk17-maven40-ubuntu22
           - imageTag: jdk21-maven39-ubuntu20
             context: maven/jdk21-maven39-ubuntu20
           - imageTag: jdk21-maven39-ubuntu20
             context: maven/jdk21-maven39-ubuntu20
           - imageTag: jdk21-maven39-ubuntu22
             context: maven/jdk21-maven39-ubuntu22
+          - imageTag: jdk21-maven40-ubuntu22
+            context: maven/jdk21-maven40-ubuntu22
     uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
     with:
       dockerImage: "exoplatform/ci"
