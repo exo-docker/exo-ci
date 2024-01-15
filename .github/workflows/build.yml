@@ -39,6 +39,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - imageTag: jdk6
+            context: jdk/jdk6
+          - imageTag: jdk7
+            context: jdk/jdk7
           - imageTag: jdk8
             context: jdk/jdk8
           - imageTag: jdk11
@@ -75,6 +79,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - imageTag: jdk6-maven30
+            context: maven/jdk6-maven30
+          - imageTag: jdk6-maven32
+            context: maven/jdk6-maven32
+          - imageTag: jdk7-maven30
+            context: maven/jdk7-maven30
+          - imageTag: jdk7-maven32
+            context: maven/jdk7-maven32
+          - imageTag: jdk8-maven30
+            context: maven/jdk8-maven30
+          - imageTag: jdk8-maven32
+            context: maven/jdk8-maven32
           - imageTag: jdk8-maven33
             context: maven/jdk8-maven33
           - imageTag: jdk8-maven35
