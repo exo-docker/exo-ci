@@ -11,5 +11,5 @@ command:
     exit-status: 0
     stdout: []
     stderr:
-    - openjdk version "11.0.21"
+    - openjdk version "11.0.22"
     timeout: 0
