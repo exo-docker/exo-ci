@@ -31,3 +31,4 @@ RUN wget -q --no-cookies --no-check-certificate \
 ADD java-${JDK_VERSION_DOT}-oracle-x64.jinfo ${JVM_DIR}/.java-${JDK_VERSION_DOT}-oracle-x64.jinfo
 RUN cat "${JVM_DIR}/.java-${JDK_VERSION_DOT}-oracle-x64.jinfo" | grep -E '^(jre|jdk|hl)' | awk '{print "/usr/bin/" $2 " " $2 " " $3 " 30 \n"}' | xargs -t -n4 sudo update-alternatives --install
 ENV JAVA_HOME ${JVM_DIR}/java-${JDK_VERSION_DOT}-oracle-x64
+RUN keytool -import -trustcacerts -alias repository.exoplatform.org -storepass changeit -noprompt -file /etc/ssl/certs/repository.exoplatform.org -keystore $JAVA_HOME/jre/lib/security/cacerts

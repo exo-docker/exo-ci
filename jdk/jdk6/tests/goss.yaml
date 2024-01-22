@@ -13,3 +13,9 @@ command:
     stderr:
     - java version "1.6.0_45"
     timeout: 0
+  keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -alias repository.exoplatform.org:
+    exit-status: 0
+    stdout:
+    - trustedCertEntry
+    stderr: []
+    timeout: 0

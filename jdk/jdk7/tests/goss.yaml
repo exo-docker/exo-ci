@@ -11,5 +11,11 @@ command:
     exit-status: 0
     stdout: []
     stderr:
-    - java version "1.7.0_79"
+    - java version "1.7.0_80"
+    timeout: 0
+  keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -alias repository.exoplatform.org:
+    exit-status: 0
+    stdout:
+    - trustedCertEntry
+    stderr: []
     timeout: 0
