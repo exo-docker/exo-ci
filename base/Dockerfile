@@ -64,6 +64,11 @@ RUN  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 23F3D4EA75716059 \
   && apt-get -qq update \
   && apt-get -qq -y install gh
 
+# Authorize nexus repository (legacy workaround due to GandiSSL Root CA certs renewl issue)
+RUN echo -n | openssl s_client -showcerts -connect repository.exoplatform.org:443 > /etc/ssl/certs/repository.exoplatform.org \
+  && chmod 0600 /etc/ssl/certs/repository.exoplatform.org \
+  && update-ca-certificates
+
 # Add some aliases
 RUN echo "alias ll='ls -al --color'" > /etc/profile.d/aliases.sh
 
