@@ -31,8 +31,8 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17                |   17.0.10    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17/tests/goss.yaml)
 | exoplatform/ci:jdk17-alpine         |   17.0.10    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17-alpine/tests/goss.yaml)
 | exoplatform/ci:jdk17-ubuntu20       |   17.0.10    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/jdk17-ubuntu20/tests/goss.yaml)
-| exoplatform/ci:jdk21-ubuntu20       |   21.0.1    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/21-ubuntu20/tests/goss.yaml)
-| exoplatform/ci:jdk21-ubuntu22       |   21.0.1    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/21-ubuntu22/tests/goss.yaml)
+| exoplatform/ci:jdk21-ubuntu20       |   21.0.2    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/21-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:jdk21-ubuntu22       |   21.0.2    | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](jdk/21-ubuntu22/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2         |   1.8.0_202 | 2.7 & 3  | 4.8 | Gradle 2.14    | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle2-android |   1.8.0_202 | 2.7 & 3  | 4.8 | Gradle 2.14 / Android 23/24    | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)
 | exoplatform/ci:jdk8-gradle4         |   1.8.0_202 | 2.7 & 3  | 4.8 | Gradle 4.1    | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)
@@ -62,9 +62,9 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17-maven39-ubuntu20 |   17.0.10    | 2.7 & 3  | 4.8 | Maven 3.9.6   | [goss.yaml](maven/jdk17-maven39-ubuntu20/tests/goss.yaml)
 | exoplatform/ci:jdk17-maven39-ubuntu22 |   17.0.10    | 2.7 & 3  | 4.8 | Maven 3.9.6   | [goss.yaml](maven/jdk17-maven39-ubuntu22/tests/goss.yaml)
 | exoplatform/ci:jdk17-maven40-ubuntu22 |   17.0.10    | 2.7 & 3  | 4.8 | Maven 4.0.0 (alpha)   | [goss.yaml](maven/jdk17-maven40-ubuntu22/tests/goss.yaml)
-| exoplatform/ci:jdk21-maven39-ubuntu20 |   21.0.1    | 2.7 & 3  | 4.8 | Maven 3.9.6   | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)
-| exoplatform/ci:jdk21-maven39-ubuntu22 |   21.0.1    | 2.7 & 3  | 4.8 | Maven 3.9.6   | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)
-| exoplatform/ci:jdk21-maven40-ubuntu22 |   21.0.1    | 2.7 & 3  | 4.8 | Maven 4.0.0 (alpha)  | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml)
+| exoplatform/ci:jdk21-maven39-ubuntu20 |   21.0.2    | 2.7 & 3  | 4.8 | Maven 3.9.6   | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)
+| exoplatform/ci:jdk21-maven39-ubuntu22 |   21.0.2    | 2.7 & 3  | 4.8 | Maven 3.9.6   | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)
+| exoplatform/ci:jdk21-maven40-ubuntu22 |   21.0.2    | 2.7 & 3  | 4.8 | Maven 4.0.0 (alpha)  | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml)
 
 
 ## Overview
