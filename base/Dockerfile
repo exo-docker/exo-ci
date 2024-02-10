@@ -1,12 +1,12 @@
 # Dockerizing a base images with:
 #
-#   - Ubuntu 14.04
+#   - Ubuntu 16.04
 #   - Base eXo CI Configuration
 #
 # build :   docker build -t exoplatform/ci:base .
 #
 
-FROM  phusion/baseimage:0.9.18
+FROM  phusion/baseimage:0.9.22
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 ENV TERM xterm
@@ -33,6 +33,7 @@ RUN apt-get -qq update && \
     curl \
     expect \
     htop \
+    sudo \
     unzip && \
   add-apt-repository ppa:git-core/ppa && \
   apt-get update && \
@@ -63,11 +64,6 @@ RUN  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 23F3D4EA75716059 \
   && apt-add-repository -y https://cli.github.com/packages \
   && apt-get -qq update \
   && apt-get -qq -y install gh
-
-# Authorize nexus repository (legacy workaround due to GandiSSL Root CA certs renewl issue)
-RUN openssl s_client -showcerts -connect repository.exoplatform.org:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > /etc/ssl/certs/repository.exoplatform.org \
-  && chmod 0600 /etc/ssl/certs/repository.exoplatform.org \
-  && update-ca-certificates
 
 # Add some aliases
 RUN echo "alias ll='ls -al --color'" > /etc/profile.d/aliases.sh
