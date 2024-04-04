@@ -1,0 +1,34 @@
+file:
+  /home/ciagent/.gradle:
+    title: Validating the presence of Gradle cache directory
+    exists: true
+  /usr/local/android-sdk-linux/platform-tools/:
+    title: Validating the presence Android tools folder
+    exists: true
+  /usr/local/android-sdk-linux/build-tools/26.0.3/:
+    title: Validating the presence Android 26.0.3 build tools folder
+    exists: true
+  /usr/local/android-sdk-linux/build-tools/27.0.3/:
+    title: Validating the presence Android 27.0.3 build tools folder
+    exists: true
+  /usr/local/android-sdk-linux/build-tools/28.0.3/:
+    title: Validating the presence Android 28.0.3 build tools folder
+    exists: true
+  /usr/local/android-sdk-linux/build-tools/29.0.3/:
+    title: Validating the presence Android 29.0.3 build tools folder
+    exists: true
+  /usr/local/android-sdk-linux/build-tools/33.0.2/:
+    title: Validating the presence Android 33.0.2 build tools folder
+    exists: true
+package:
+  git:
+    installed: true
+    title: Check that git is installed
+
+command:
+  gradle --version:
+    exit-status: 0
+    stdout:
+    - Gradle 8.7
+    stderr: []
+    timeout: 0
