@@ -125,6 +125,61 @@ jobs:
             context: maven/jdk21-maven39-ubuntu22
           - imageTag: jdk21-maven40-ubuntu22
             context: maven/jdk21-maven40-ubuntu22
+    
+    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
+    with:
+      dockerImage: "exoplatform/ci"
+      dockerImageTag: ${{ matrix.imageTag }}
+      dockerFileContext: ${{ matrix.context }}
+      signImage: false
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
+
+  build-gradle-images:
+    name: "Build Gradle Images"
+    needs: build-jdk-images
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - imageTag: jdk8-gradle4
+            context: gradle/jdk8-gradle4
+          - imageTag: jdk8-gradle6
+            context: gradle/jdk8-gradle6
+          - imageTag: jdk17-gradle8
+            context: gradle/jdk17-gradle8
+    
+    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
+    with:
+      dockerImage: "exoplatform/ci"
+      dockerImageTag: ${{ matrix.imageTag }}
+      dockerFileContext: ${{ matrix.context }}
+      signImage: false
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
+
+  build-gradle-android-images:
+    name: "Build Gradle Android Images"
+    needs: build-gradle-images
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - imageTag: jdk8-gradle4-android
+            context: gradle/jdk8-gradle4-android
+          - imageTag: jdk8-gradle6-android
+            context: gradle/jdk8-gradle6-android
+          - imageTag: jdk17-gradle8-android
+            context: gradle/jdk17-gradle8-android
+    
     uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
     with:
       dockerImage: "exoplatform/ci"
