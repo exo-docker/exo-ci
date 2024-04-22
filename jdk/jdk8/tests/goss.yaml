@@ -11,5 +11,5 @@ command:
     exit-status: 0
     stdout: []
     stderr:
-    - java version "1.8.0_401"
+    - java version "1.8
     timeout: 0

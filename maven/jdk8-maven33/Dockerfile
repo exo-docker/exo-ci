@@ -1,6 +1,6 @@
 # Dockerizing a jdk8-maven33 images with:
 #
-#   - Oracle JDK 8
+#   - OpenJDK JDK 8
 #   - Maven 3.3
 #
 # build :   docker build -t exoplatform/ci:jdk8-maven33 .
