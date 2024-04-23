@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:base-ubuntu22 .
 #
 
-FROM  phusion/baseimage:jammy-1.0.3
+FROM  phusion/baseimage:jammy-1.0.4
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 ENV TERM xterm
