@@ -16,3 +16,5 @@ RUN wget -P /etc/apk/keys/ https://cdn.azul.com/public_keys/alpine-signing@azul.
 RUN echo "https://repos.azul.com/zulu/alpine" | tee -a /etc/apk/repositories
 
 RUN apk add --no-cache zulu${JDK_MAJOR_VERSION}-jdk
+
+ENV JAVA_HOME /usr/lib/jvm/zulu${JDK_MAJOR_VERSION}
