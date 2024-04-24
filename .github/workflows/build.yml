@@ -190,5 +190,28 @@ jobs:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+
+  build-fastlane-android-images:
+    name: "Build Fastlane Android Images"
+    needs: build-gradle-android-images
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - imageTag: fastlane-gradle6-android
+            context: android/fastlane-gradle6-android
+          - imageTag: fastlane-gradle8-android
+            context: gradle/fastlane-gradle8-android
+    
+    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
+    with:
+      dockerImage: "exoplatform/ci"
+      dockerImageTag: ${{ matrix.imageTag }}
+      dockerFileContext: ${{ matrix.context }}
+      signImage: false
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
       DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
       DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
