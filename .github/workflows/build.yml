@@ -201,7 +201,7 @@ jobs:
           - imageTag: fastlane-gradle6-android
             context: android/fastlane-gradle6-android
           - imageTag: fastlane-gradle8-android
-            context: gradle/fastlane-gradle8-android
+            context: android/fastlane-gradle8-android
     
     uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
     with:
