@@ -198,8 +198,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - imageTag: fastlane-gradle6-android
-            context: android/fastlane-gradle6-android
+          # - imageTag: fastlane-gradle6-android
+          #   context: android/fastlane-gradle6-android
           - imageTag: fastlane-gradle8-android
             context: android/fastlane-gradle8-android
     
