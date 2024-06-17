@@ -1,7 +1,7 @@
 # Dockerizing a jdk17-maven40-ubuntu22 images with:
 #   - ubuntu22
 #   - OpenJDK JDK 17
-#   - Maven 4.0 (alpha)
+#   - Maven 4.0 (beta)
 #
 # build :   docker build -t exoplatform/ci:jdk17-maven40-ubuntu22 .
 #
@@ -9,7 +9,7 @@ FROM exoplatform/ci:jdk17-ubuntu22
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEN_VERSION 4.0.0-alpha-13
+ENV MAVEN_VERSION 4.0.0-beta-3
 # Install Maven
 RUN mkdir -p /usr/share/maven \
     && curl -fsSL http://archive.apache.org/dist/maven/maven-4/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
