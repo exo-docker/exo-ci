@@ -16,7 +16,7 @@ command:
   mvn --version:
     exit-status: 0
     stdout:
-    - 3.9.8
+    - 3.9.9
     - 21.0.2
     - "Default locale: en_US, platform encoding: UTF-8"
     stderr: []
