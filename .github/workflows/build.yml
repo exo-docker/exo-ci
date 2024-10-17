@@ -246,11 +246,13 @@ jobs:
 
   update-zulu-jdks-readme:
     name: "Update Readme file jdk section"
-    needs: build-jdk-images
+    needs: build-maven-images
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.SWF_TOKEN }}
     - name: Check latest jdk versions
       run: |
         if ! grep -q '<!-- GHASTART -->' README.md; then
