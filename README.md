@@ -18,6 +18,9 @@ The aim of this repository is to give the configuration to **build all eXo Platf
 
 It contains **Dockerfiles, Tests and configuration** for the following CI Images:
 
+<!-- The comment below is used to dynamically update JDK versions by build.yml workflow. DO NOT REMOVE THIS COMMENT AND THE END ONE -->
+<!-- The below content is managed by the build github action. For table modification: edit before .github/table-template.md file -->
+<!-- GHASTART -->
 |    Image                            |  JDK        | Python   | GCC |   Build tool   |  Tests
 |-------------------------------------|-------------|----------|-----|----------------|------------
 | exoplatform/ci:base                 |   n/a       | 2.7 & 3  | 4.8 | n/a            | [goss.yaml](base/tests/goss.yaml)
@@ -70,7 +73,7 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk21-maven39-ubuntu22 |   21    | 2.7 & 3  | 11.4 | Maven 3.9.9   | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)
 | exoplatform/ci:jdk21-maven39-ubuntu24 |   21    | 3        | 11.4 | Maven 3.9.9   | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml)
 | exoplatform/ci:jdk21-maven40-ubuntu22 |   21    | 2.7 & 3  | 11.4 | Maven 4.0.0 (beta)  | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml)
-
+<!-- GHAEND -->
 
 ## Overview
 
