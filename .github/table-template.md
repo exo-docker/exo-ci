@@ -12,8 +12,8 @@
 | exoplatform/ci:jdk17                  | ${JDK17_VERSION}        | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](jdk/jdk17/tests/goss.yaml)                    |
 | exoplatform/ci:jdk17-alpine           | ${JDK17_VERSION}        | 2.7 & 3 | 13.2  | n/a                                          | [goss.yaml](jdk/jdk17-alpine/tests/goss.yaml)             |
 | exoplatform/ci:jdk17-ubuntu20         | ${JDK17_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/jdk17-ubuntu20/tests/goss.yaml)           |
-| exoplatform/ci:jdk21-ubuntu20         | ${JDK21_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/${JDK21_VERSION}-ubuntu20/tests/goss.yaml)              |
-| exoplatform/ci:jdk21-ubuntu22         | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | n/a                                          | [goss.yaml](jdk/${JDK21_VERSION}-ubuntu22/tests/goss.yaml)              |
+| exoplatform/ci:jdk21-ubuntu20         | ${JDK21_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/jdk21-ubuntu20/tests/goss.yaml)              |
+| exoplatform/ci:jdk21-ubuntu22         | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | n/a                                          | [goss.yaml](jdk/jdk21-ubuntu22/tests/goss.yaml)              |
 | exoplatform/ci:jdk8-gradle2           | 1.8.0_202 | 2.7 & 3 | 5.4  | Gradle 2.14                                  | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)             |
 | exoplatform/ci:jdk8-gradle2-android   | 1.8.0_202 | 2.7 & 3 | 5.4  | Gradle 2.14 / Android 23/24                  | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)  |
 | exoplatform/ci:jdk8-gradle4           | ${JDK8_VERSION}     | 2.7 & 3 | 5.4  | Gradle 4.1                                   | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)             |
