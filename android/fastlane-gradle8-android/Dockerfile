@@ -4,7 +4,7 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 USER root
 # Use default location of keystore
-ENV GOOGLE_PLAY_EXO_KEYSTORE_PROPS /srv/ciagent/workspace/keystore.properties
+ENV GOOGLE_PLAY_EXO_KEYSTORE_PROPS=/srv/ciagent/workspace/keystore.properties
 
 WORKDIR /src
 

@@ -13,7 +13,7 @@ RUN wget --no-check-certificate --no-cookies https://downloads.gradle.org/distri
 # Workaround to be able to execute others command than "gradle" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint \
-     && chmod u+x /usr/bin/docker-entrypoint
+    && chmod u+x /usr/bin/docker-entrypoint
 
 USER ${EXO_CI_USER}
 

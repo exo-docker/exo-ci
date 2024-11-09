@@ -7,9 +7,9 @@
 FROM exoplatform/ci:base
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
-ENV TERM xterm
+ENV TERM=xterm
 
-ENV JDK_MAJOR_VERSION 11
+ENV JDK_MAJOR_VERSION=11
 
 # Install OpenJDK Java 11 SDK
 RUN apt-get -qq update && \
@@ -22,4 +22,4 @@ RUN apt-get -qq -y autoremove && \
     apt-get -qq -y clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_HOME /usr/lib/jvm/zulu${JDK_MAJOR_VERSION}
+ENV JAVA_HOME=/usr/lib/jvm/zulu${JDK_MAJOR_VERSION}

@@ -9,17 +9,17 @@ FROM exoplatform/ci:jdk8
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEN_VERSION 3.5.4
+ENV MAVEN_VERSION=3.5.4
 # Install Maven
 RUN mkdir -p /usr/share/maven \
     && curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
-         | tar xzf - -C /usr/share/maven --strip-components=1  \
+    | tar xzf - -C /usr/share/maven --strip-components=1  \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 # Workaround to be able to execute others command than "mvn" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint \
-     && chmod u+x /usr/bin/docker-entrypoint
+    && chmod u+x /usr/bin/docker-entrypoint
 
 USER ${EXO_CI_USER}
 

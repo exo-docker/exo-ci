@@ -4,20 +4,20 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 # eXo CI User
-ENV EXO_CI_USER ciagent
-ENV EXO_GROUP ciagent
-ENV HOME /home/${EXO_CI_USER}
+ENV EXO_CI_USER=ciagent
+ENV EXO_GROUP=ciagent
+ENV HOME=/home/${EXO_CI_USER}
 
 # Required directories for ciagent
-ENV EXO_CI_BASE       /srv/ciagent
-ENV EXO_CI_DATA_DIR   ${EXO_CI_BASE}/workspace
-ENV EXO_CI_LOG_DIR    ${EXO_CI_BASE}/logs
-ENV EXO_CI_TMP_DIR    ${EXO_CI_BASE}/tmp
+ENV EXO_CI_BASE=/srv/ciagent
+ENV EXO_CI_DATA_DIR=${EXO_CI_BASE}/workspace
+ENV EXO_CI_LOG_DIR=${EXO_CI_BASE}/logs
+ENV EXO_CI_TMP_DIR=${EXO_CI_BASE}/tmp
 
 RUN apt-get update && \
   apt-get install -y sudo gnupg curl ca-certificates git
@@ -29,9 +29,9 @@ RUN echo "ciagent  ALL = NOPASSWD: ALL" > /etc/sudoers.d/ciagent && chmod 440 /e
 
 # Create needed directories
 RUN mkdir -p ${EXO_CI_DATA_DIR}  \
-   && mkdir -p ${EXO_CI_TMP_DIR} \
-   && mkdir -p ${EXO_CI_LOG_DIR} \
-   && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_BASE}
+  && mkdir -p ${EXO_CI_TMP_DIR} \
+  && mkdir -p ${EXO_CI_LOG_DIR} \
+  && chown -R ${EXO_CI_USER}:${EXO_GROUP} ${EXO_CI_BASE}
 
 # Install puppetlab repository
 RUN curl -fsSL https://apt.puppetlabs.com/keyring.gpg | gpg --batch --yes --dearmor -o /usr/share/keyrings/puppet-keyring.gpg && \
@@ -50,7 +50,7 @@ RUN apt-get -qq -y autoremove && \
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 COPY validate_puppet.sh /usr/bin/validate_puppet
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint /usr/bin/validate_puppet \
-     && chmod u+x /usr/bin/docker-entrypoint /usr/bin/validate_puppet
+  && chmod u+x /usr/bin/docker-entrypoint /usr/bin/validate_puppet
 
 USER ${EXO_CI_USER}
 

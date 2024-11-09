@@ -10,7 +10,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get clean
 
 # Download and untar SDK
-ENV ANDROID_SDK_URL https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+ENV ANDROID_SDK_URL=https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
 RUN curl -L "${ANDROID_SDK_URL}" -o /tmp/sdk-tools-linux.zip \
     && unzip /tmp/sdk-tools-linux.zip -d /usr/local/android-sdk-linux/ \
     && rm -f /tmp/sdk-tools-linux.zip
@@ -38,9 +38,9 @@ RUN yes | /usr/local/android-sdk-linux/tools/bin/sdkmanager --licenses
 USER ${EXO_CI_USER}
 
 # Setup environment
-ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV ANDROID_SDK /usr/local/android-sdk-linux
-ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
+ENV ANDROID_HOME=/usr/local/android-sdk-linux
+ENV ANDROID_SDK=/usr/local/android-sdk-linux
+ENV PATH=${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Create needed directories for Gradle & git
 RUN mkdir -p ${HOME}/.android

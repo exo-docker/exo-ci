@@ -9,18 +9,18 @@ FROM exoplatform/ci:jdk17
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEND_VERSION 0.9.0
+ENV MAVEND_VERSION=0.9.0
 # Install Mavend
 RUN mkdir -p /usr/share/mavend \
     && curl -fsSL http://archive.apache.org/dist/maven/mvnd/${MAVEND_VERSION}/maven-mvnd-${MAVEND_VERSION}-linux-amd64.tar.gz  \
-         | tar xzf - -C /usr/share/mavend --strip-components=1  \
+    | tar xzf - -C /usr/share/mavend --strip-components=1  \
     && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvnd \
     && ln -s /usr/share/mavend/bin/mvnd /usr/bin/mvn
 
 # Workaround to be able to execute others command than "mvn" as entrypoint
 COPY docker-entrypoint.sh /usr/bin/docker-entrypoint
 RUN  chown ${EXO_CI_USER}:${EXO_GROUP} /usr/bin/docker-entrypoint \
-     && chmod u+x /usr/bin/docker-entrypoint
+    && chmod u+x /usr/bin/docker-entrypoint
 
 USER ${EXO_CI_USER}
 
