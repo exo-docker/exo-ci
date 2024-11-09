@@ -25,7 +25,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # --force-confold: do not modify the current configuration file, the new version is installed with a .dpkg-dist suffix. With this option alone, even configuration
 #   files that you have not modified are left untouched. You need to combine it with
 # --force-confdef to let dpkg overwrite configuration files that you have not modified.
-ENV _APT_OPTIONS=-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+ENV _APT_OPTIONS="-o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold"
 RUN apt-get -qq update && \
   apt-get -qq -y full-upgrade ${_APT_OPTIONS} && \
   apt-get -qq -y install ${_APT_OPTIONS} \
