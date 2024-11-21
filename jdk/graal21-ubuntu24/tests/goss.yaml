@@ -1,0 +1,15 @@
+file:
+  /usr/lib/jvm:
+    title: Validating the presence of JVM directory
+    exists: true   
+package:
+  git:
+    installed: true
+    title: Check that git is installed
+command:
+  java -version:
+    exit-status: 0
+    stdout: []
+    stderr:
+    - graal version "21
+    timeout: 0
