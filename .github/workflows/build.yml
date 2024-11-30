@@ -283,6 +283,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.SWF_TOKEN }}
+        ref: ${{ github.ref }}
     - name: Check latest jdk & maven versions
       run: |
         if ! grep -q '<!-- GHASTART -->' README.md; then
