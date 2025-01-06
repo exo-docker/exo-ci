@@ -69,19 +69,24 @@ jobs:
             context: base-ubuntu22
           - imageTag: base-ubuntu24
             context: base-ubuntu24
-    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
-    with:
-      dockerImage: "exoplatform/ci"
-      dockerImageTag: ${{ matrix.imageTag }}
-      dockerFileContext: ${{ matrix.context }}
-      signImage: false
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
-
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write    
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build and sign Docker images"
+        uses: exo-actions/buildDockerImage-action@v1
+        with:
+          dockerImage: "exoplatform/ci"
+          dockerImageTag: ${{ matrix.imageTag }}
+          dockerFileContext: ${{matrix.context}}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
   build-jdk-images:
     name: "Build JDK Images"
     needs: build-base-images
@@ -113,19 +118,24 @@ jobs:
             context: jdk/jdk21-ubuntu22
           - imageTag: jdk21-ubuntu24
             context: jdk/jdk21-ubuntu24
-    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
-    with:
-      dockerImage: "exoplatform/ci"
-      dockerImageTag: ${{ matrix.imageTag }}
-      dockerFileContext: ${{ matrix.context }}
-      signImage: false
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
-
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write    
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build and sign Docker images"
+        uses: exo-actions/buildDockerImage-action@v1
+        with:
+          dockerImage: "exoplatform/ci"
+          dockerImageTag: ${{ matrix.imageTag }}
+          dockerFileContext: ${{matrix.context}}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
   build-maven-images:
     name: "Build Maven Images"
     needs: [check-autobump-available-maven, build-jdk-images]
@@ -184,18 +194,24 @@ jobs:
           - imageTag: jdk21-maven40-ubuntu22
             context: maven/jdk21-maven40-ubuntu22
     
-    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
-    with:
-      dockerImage: "exoplatform/ci"
-      dockerImageTag: ${{ matrix.imageTag }}
-      dockerFileContext: ${{ matrix.context }}
-      signImage: false
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write    
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build and sign Docker images"
+        uses: exo-actions/buildDockerImage-action@v1
+        with:
+          dockerImage: "exoplatform/ci"
+          dockerImageTag: ${{ matrix.imageTag }}
+          dockerFileContext: ${{matrix.context}}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-gradle-images:
     name: "Build Gradle Images"
@@ -211,18 +227,24 @@ jobs:
           - imageTag: jdk17-gradle8
             context: gradle/jdk17-gradle8
     
-    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
-    with:
-      dockerImage: "exoplatform/ci"
-      dockerImageTag: ${{ matrix.imageTag }}
-      dockerFileContext: ${{ matrix.context }}
-      signImage: false
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write    
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build and sign Docker images"
+        uses: exo-actions/buildDockerImage-action@v1
+        with:
+          dockerImage: "exoplatform/ci"
+          dockerImageTag: ${{ matrix.imageTag }}
+          dockerFileContext: ${{matrix.context}}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-gradle-android-images:
     name: "Build Gradle Android Images"
@@ -238,16 +260,24 @@ jobs:
           - imageTag: jdk17-gradle8-android
             context: gradle/jdk17-gradle8-android
     
-    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
-    with:
-      dockerImage: "exoplatform/ci"
-      dockerImageTag: ${{ matrix.imageTag }}
-      dockerFileContext: ${{ matrix.context }}
-      signImage: false
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write    
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build and sign Docker images"
+        uses: exo-actions/buildDockerImage-action@v1
+        with:
+          dockerImage: "exoplatform/ci"
+          dockerImageTag: ${{ matrix.imageTag }}
+          dockerFileContext: ${{matrix.context}}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-fastlane-android-images:
     name: "Build Fastlane Android Images"
@@ -261,18 +291,24 @@ jobs:
           - imageTag: fastlane-gradle8-android
             context: android/fastlane-gradle8-android
     
-    uses: exoplatform/swf-scripts/.github/workflows/buildDockerImage.yml@master
-    with:
-      dockerImage: "exoplatform/ci"
-      dockerImageTag: ${{ matrix.imageTag }}
-      dockerFileContext: ${{ matrix.context }}
-      signImage: false
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-      DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-      DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write    
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build and sign Docker images"
+        uses: exo-actions/buildDockerImage-action@v1
+        with:
+          dockerImage: "exoplatform/ci"
+          dockerImageTag: ${{ matrix.imageTag }}
+          dockerFileContext: ${{matrix.context}}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
+          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
+          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   update-zulu-jdks-and-maven-readme:
     name: "Update Readme file jdk & Maven section"
