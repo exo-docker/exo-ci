@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:base-ubuntu24 .
 #
 
-FROM  phusion/baseimage:noble-1.0.0
+FROM  phusion/baseimage:noble-1.0.1
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
