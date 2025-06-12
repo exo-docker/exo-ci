@@ -43,7 +43,7 @@ jobs:
             # Determine source URL
             if [[ "$major" -eq 3 && "$(echo "$major_mvn_version" | cut -d. -f2)" -ge 9 ]] || [[ "$major" -ge 4 ]]; then
               # Use dlcdn for 3.9.10+ or 4.x
-              versions=$(curl -fsSL "https://dlcdn.apache.org/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+(?=/")')
+              versions=$(curl -fsSL "https://dlcdn.apache.org/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+.*(?=/")')
             else
               # Use archive for older versions
               versions=$(curl -fsSL "https://archive.apache.org/dist/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+(?=/")')
