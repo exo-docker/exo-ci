@@ -39,18 +39,29 @@ jobs:
           echo "Fetching latest versions of Maven (${mvn_list}):"
           echo "### Maven Versions List:" >> $GITHUB_STEP_SUMMARY
           for major_mvn_version in ${mvn_list//,/ }; do 
-            latestversion=$(curl -fsSL -X GET "https://archive.apache.org/dist/maven/maven-${major_mvn_version%%.*}/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | tail -1) 
+            major="${major_mvn_version%%.*}"
+            # Determine source URL
+            if [[ "$major" -eq 3 && "$(echo "$major_mvn_version" | cut -d. -f2)" -ge 9 ]] || [[ "$major" -ge 4 ]]; then
+              # Use dlcdn for 3.9.10+ or 4.x
+              versions=$(curl -fsSL "https://dlcdn.apache.org/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+(?=/")')
+            else
+              # Use archive for older versions
+              versions=$(curl -fsSL "https://archive.apache.org/dist/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+(?=/")')
+            fi
+            # Filter versions starting with the desired prefix
+            latestversion=$(echo "$versions" | grep "^${major_mvn_version}" | sort -V | tail -1)
             if [ -z "${latestversion}" ]; then
               echo "Error: Cannot find latest version for Maven ${major_mvn_version}! Abort!"
               exit 1
             fi
             echo " - Maven ${major_mvn_version}: ${latestversion}"
             echo " - Maven ${major_mvn_version}: ${latestversion}" >> $GITHUB_STEP_SUMMARY
-            grep -irl "ENV MAVEN_VERSION=${major_mvn_version}" --include=Dockerfile | xargs -r sed -Ei "s/^ENV MAVEN_VERSION=.*/ENV MAVEN_VERSION=${latestversion}/" 
+            grep -irl "ENV MAVEN_VERSION=${major_mvn_version}" --include=Dockerfile | \
+              xargs -r sed -Ei "s/^ENV MAVEN_VERSION=.*/ENV MAVEN_VERSION=${latestversion}/"
             git add -u
             git diff-index --quiet HEAD || git commit -m "Autobump maven ${major_mvn_version} to ${latestversion}"
           done
-          echo "Done" 
+          echo "Done"
           git push origin HEAD
 
   build-base-images:

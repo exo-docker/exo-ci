@@ -12,7 +12,7 @@ LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 ENV MAVEN_VERSION=4.0.0-rc-3
 # Install Maven
 RUN mkdir -p /usr/share/maven \
-    && curl -fsSL http://archive.apache.org/dist/maven/maven-4/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
+    && curl -fsSL http://dlcdn.apache.org/dist/maven/maven-4/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
     | tar xzf - -C /usr/share/maven --strip-components=1  \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
