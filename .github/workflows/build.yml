@@ -39,17 +39,7 @@ jobs:
           echo "Fetching latest versions of Maven (${mvn_list}):"
           echo "### Maven Versions List:" >> $GITHUB_STEP_SUMMARY
           for major_mvn_version in ${mvn_list//,/ }; do 
-            major="${major_mvn_version%%.*}"
-            # Determine source URL
-            if [[ "$major" -eq 3 && "$(echo "$major_mvn_version" | cut -d. -f2)" -ge 9 ]] || [[ "$major" -ge 4 ]]; then
-              # Use dlcdn for 3.9.10+ or 4.x
-              versions=$(curl -fsSL "https://dlcdn.apache.org/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+.*(?=/")')
-            else
-              # Use archive for older versions
-              versions=$(curl -fsSL "https://archive.apache.org/dist/maven/maven-${major}/" | grep -oP 'href="\K[0-9]+\.[0-9]+\.[0-9]+(?=/")')
-            fi
-            # Filter versions starting with the desired prefix
-            latestversion=$(echo "$versions" | grep "^${major_mvn_version}" | sort -V | tail -1)
+            latestversion=$(curl -fsSL -X GET "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | awk '{print $1}' | tr -d '"' | sort --version-sort | tail -1)
             if [ -z "${latestversion}" ]; then
               echo "Error: Cannot find latest version for Maven ${major_mvn_version}! Abort!"
               exit 1
@@ -351,7 +341,7 @@ jobs:
           export JDK${major_jdk_version}_VERSION=$(echo ${latestversion} | sed 's/,/./g')
         done
         for major_mvn_version in ${mvn_list//,/ }; do 
-          latestversion=$(curl -fsSL -X GET "https://archive.apache.org/dist/maven/maven-${major_mvn_version%%.*}/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | tail -1) 
+          latestversion=$(curl -fsSL -X GET "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | awk '{print $1}' | tr -d '"' | sort --version-sort | tail -1) 
           if [ -z "${latestversion}" ]; then
             echo "Error: Cannot find latest version for Maven ${major_mvn_version}! Abort!"
             exit 1
