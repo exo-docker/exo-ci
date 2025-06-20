@@ -57,10 +57,10 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk11-maven33          | 11.0.27        | 2.7 & 3 | 5.4   | Maven 3.3.9                                   | [goss.yaml](maven/jdk11-maven33/tests/goss.yaml)             |
 | exoplatform/ci:jdk11-maven35          | 11.0.27        | 2.7 & 3 | 5.4   | Maven 3.5.4                                   | [goss.yaml](maven/jdk11-maven35/tests/goss.yaml)             |
 | exoplatform/ci:jdk11-maven36          | 11.0.27        | 2.7 & 3 | 5.4   | Maven 3.6.3                                   | [goss.yaml](maven/jdk11-maven36/tests/goss.yaml)             |
-| exoplatform/ci:jdk11-maven38          | 11.0.27        | 2.7 & 3 | 5.4   | Maven 3.8.8                                   | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)             |
+| exoplatform/ci:jdk11-maven38          | 11.0.27        | 2.7 & 3 | 5.4   | Maven 3.8.9                                   | [goss.yaml](maven/jdk11-maven38/tests/goss.yaml)             |
 | exoplatform/ci:jdk11-mavend08         | 11.0.27        | 2.7 & 3 | 5.4   | Mavend 0.8.2                                  | [goss.yaml](mavend/jdk11-mavend08/tests/goss.yaml)           |
 | exoplatform/ci:jdk17-maven36          | 17.0.15        | 2.7 & 3 | 5.4   | Maven 3.6.3                                   | [goss.yaml](maven/jdk17-maven36/tests/goss.yaml)             |
-| exoplatform/ci:jdk17-maven38          | 17.0.15        | 2.7 & 3 | 5.4   | Maven 3.8.8                                   | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)             |
+| exoplatform/ci:jdk17-maven38          | 17.0.15        | 2.7 & 3 | 5.4   | Maven 3.8.9                                   | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)             |
 | exoplatform/ci:jdk17-mavend08         | 17.0.15        | 2.7 & 3 | 5.4   | Mavend 0.8.2                                  | [goss.yaml](mavend/jdk17-mavend08/tests/goss.yaml)           |
 | exoplatform/ci:jdk17-mavend09         | 17.0.15        | 2.7 & 3 | 5.4   | Mavend 0.9.0                                  | [goss.yaml](mavend/jdk17-mavend09/tests/goss.yaml)           |
 | exoplatform/ci:jdk17-maven39          | 17.0.15        | 2.7 & 3 | 5.4   | Maven 3.9.10                                  | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)             |
