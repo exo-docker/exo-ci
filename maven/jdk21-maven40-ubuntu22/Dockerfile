@@ -9,7 +9,7 @@ FROM exoplatform/ci:jdk21-ubuntu22
 LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
-ENV MAVEN_VERSION=4.0.0-rc-3
+ENV MAVEN_VERSION=4.0.0-rc-4
 # Install Maven
 RUN mkdir -p /usr/share/maven \
     && curl -fsSL https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz \
