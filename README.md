@@ -73,6 +73,7 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk21-maven39-ubuntu22 | 21.0.8         | 2.7 & 3 | 11.4  | Maven 3.9.11                                  | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)    |
 | exoplatform/ci:jdk21-maven39-ubuntu24 | 21.0.8         | 3       | 13.2  | Maven 3.9.11                                  | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml)    |
 | exoplatform/ci:jdk21-maven40-ubuntu22 | 21.0.8         | 2.7 & 3 | 11.4  | Maven 4.0.0-rc-4                              | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml)    |
+| exoplatform/ci:jdk25-maven39-ubuntu24 | 25.0.0         | 3       | 13.2  | Maven 3.9.11                                  | [goss.yaml](maven/jdk25-maven39-ubuntu24/tests/goss.yaml)    |
 <!-- GHAEND -->
 
 ## Overview
