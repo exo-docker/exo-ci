@@ -50,3 +50,4 @@
 | exoplatform/ci:jdk21-maven39-ubuntu22 | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven39-ubuntu24 | ${JDK21_VERSION}        | 3       | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven40-ubuntu22 | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN40_VERSION}                           | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml) |
+| exoplatform/ci:jdk25-maven39-ubuntu24 | ${JDK25_VERSION}        | 3       | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk25-maven39-ubuntu24/tests/goss.yaml) |

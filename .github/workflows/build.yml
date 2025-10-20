@@ -4,7 +4,7 @@ on:
     - cron:  '0 22 * * 5' # Every Friday at 10 PM UTC
   workflow_dispatch:
 env:
-  jdk_list: 8,11,17,21
+  jdk_list: 8,11,17,21,25
   mvn_list: 3.0,3.2,3.3,3.5,3.6,3.8,3.9,4.0
 
 jobs:
@@ -119,6 +119,8 @@ jobs:
             context: jdk/jdk21-ubuntu22
           - imageTag: jdk21-ubuntu24
             context: jdk/jdk21-ubuntu24
+          - imageTag: jdk25-ubuntu24
+            context: jdk/jdk25-ubuntu24
     permissions:
       contents: read
       packages: write
@@ -194,7 +196,8 @@ jobs:
             context: maven/jdk21-maven39-ubuntu24
           - imageTag: jdk21-maven40-ubuntu22
             context: maven/jdk21-maven40-ubuntu22
-    
+          - imageTag: jdk25-maven39-ubuntu24
+            context: maven/jdk25-maven39-ubuntu24
     permissions:
       contents: read
       packages: write
