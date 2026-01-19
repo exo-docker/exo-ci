@@ -1,6 +1,6 @@
 FROM exoplatform/ci:jdk8-gradle6-android
 
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 USER root
 # Use default location of keystore

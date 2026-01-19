@@ -1,5 +1,5 @@
 FROM exoplatform/ci:jdk8
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
 ENV GRADLE_VERSION=4.1

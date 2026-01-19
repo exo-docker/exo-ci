@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:jdk17-maven39-alpine .
 #
 FROM exoplatform/ci:jdk17-alpine
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
 ENV MAVEN_VERSION=3.9.12

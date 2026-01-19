@@ -77,7 +77,7 @@ jobs:
       attestations: write    
     runs-on: ubuntu-latest
     steps:
-      - name: "Build and sign Docker images"
+      - name: "Build and Push Docker images"
         uses: exo-actions/buildDockerImage-action@v1
         with:
           dockerImage: "exoplatform/ci"
@@ -128,7 +128,7 @@ jobs:
       attestations: write    
     runs-on: ubuntu-latest
     steps:
-      - name: "Build and sign Docker images"
+      - name: "Build and Push Docker images"
         uses: exo-actions/buildDockerImage-action@v1
         with:
           dockerImage: "exoplatform/ci"
@@ -205,7 +205,7 @@ jobs:
       attestations: write    
     runs-on: ubuntu-latest
     steps:
-      - name: "Build and sign Docker images"
+      - name: "Build and Push Docker images"
         uses: exo-actions/buildDockerImage-action@v1
         with:
           dockerImage: "exoplatform/ci"
@@ -235,7 +235,7 @@ jobs:
       attestations: write    
     runs-on: ubuntu-latest
     steps:
-      - name: "Build and sign Docker images"
+      - name: "Build and Push Docker images"
         uses: exo-actions/buildDockerImage-action@v1
         with:
           dockerImage: "exoplatform/ci"
@@ -265,7 +265,7 @@ jobs:
       attestations: write    
     runs-on: ubuntu-latest
     steps:
-      - name: "Build and sign Docker images"
+      - name: "Build and Push Docker images"
         uses: exo-actions/buildDockerImage-action@v1
         with:
           dockerImage: "exoplatform/ci"
@@ -293,7 +293,7 @@ jobs:
       attestations: write    
     runs-on: ubuntu-latest
     steps:
-      - name: "Build and sign Docker images"
+      - name: "Build and Push Docker images"
         uses: exo-actions/buildDockerImage-action@v1
         with:
           dockerImage: "exoplatform/ci"

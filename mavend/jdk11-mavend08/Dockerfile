@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:jdk11-mavend08 .
 #
 FROM exoplatform/ci:jdk11
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
 ENV MAVEND_VERSION=0.8.2

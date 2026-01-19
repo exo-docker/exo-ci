@@ -7,7 +7,7 @@
 #
 
 FROM  phusion/baseimage:0.10.2
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
 

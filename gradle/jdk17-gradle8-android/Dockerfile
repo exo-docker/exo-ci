@@ -1,5 +1,5 @@
 FROM exoplatform/ci:jdk17-gradle8
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 USER root
 

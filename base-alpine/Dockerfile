@@ -7,7 +7,7 @@
 #
 
 FROM  alpine:3.19
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # Install some useful or needed tools
 RUN apk update && \

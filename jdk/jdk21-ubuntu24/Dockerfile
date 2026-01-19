@@ -5,7 +5,7 @@
 # build :   docker build -t exoplatform/ci:jdk21-ubuntu24 .
 #
 FROM exoplatform/ci:base-ubuntu24
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
 

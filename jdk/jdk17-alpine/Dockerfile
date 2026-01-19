@@ -5,7 +5,7 @@
 # build :   docker build -t exoplatform/ci:jdk17-alpine .
 #
 FROM exoplatform/ci:base-alpine
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
 

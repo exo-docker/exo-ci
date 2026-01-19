@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:jdk21-maven39-ubuntu24 .
 #
 FROM exoplatform/ci:jdk21-ubuntu24
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
 ENV MAVEN_VERSION=3.9.12

@@ -1,6 +1,6 @@
 FROM phusion/baseimage:bionic-1.0.0
 
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # Set the locale
 RUN locale-gen en_US.UTF-8

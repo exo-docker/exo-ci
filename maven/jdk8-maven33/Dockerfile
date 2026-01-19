@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:jdk8-maven33 .
 #
 FROM exoplatform/ci:jdk8
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # CI Tools version
 ENV MAVEN_VERSION=3.3.9

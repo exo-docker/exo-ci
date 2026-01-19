@@ -7,7 +7,7 @@
 #
 
 FROM  phusion/baseimage:focal-1.2.0
-LABEL MAINTAINER "eXo Platform <docker@exoplatform.com>"
+LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
 
