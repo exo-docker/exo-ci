@@ -63,17 +63,17 @@ It contains **Dockerfiles, Tests and configuration** for the following CI Images
 | exoplatform/ci:jdk17-maven38          | 17.0.17        | 2.7 & 3 | 5.4   | Maven 3.8.9                                   | [goss.yaml](maven/jdk17-maven38/tests/goss.yaml)             |
 | exoplatform/ci:jdk17-mavend08         | 17.0.17        | 2.7 & 3 | 5.4   | Mavend 0.8.2                                  | [goss.yaml](mavend/jdk17-mavend08/tests/goss.yaml)           |
 | exoplatform/ci:jdk17-mavend09         | 17.0.17        | 2.7 & 3 | 5.4   | Mavend 0.9.0                                  | [goss.yaml](mavend/jdk17-mavend09/tests/goss.yaml)           |
-| exoplatform/ci:jdk17-maven39          | 17.0.17        | 2.7 & 3 | 5.4   | Maven 3.9.11                                  | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)             |
-| exoplatform/ci:jdk17-maven39-alpine   | 17.0.17        | 2.7 & 3 | 13.2  | Maven 3.9.11                                  | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)      |
-| exoplatform/ci:jdk17-maven39-ubuntu20 | 17.0.17        | 2.7 & 3 | 9.4   | Maven 3.9.11                                  | [goss.yaml](maven/jdk17-maven39-ubuntu20/tests/goss.yaml)    |
-| exoplatform/ci:jdk17-maven39-ubuntu22 | 17.0.17        | 2.7 & 3 | 11.4  | Maven 3.9.11                                  | [goss.yaml](maven/jdk17-maven39-ubuntu22/tests/goss.yaml)    |
-| exoplatform/ci:jdk17-maven39-ubuntu24 | 17.0.17        | 3       | 13.2  | Maven 3.9.11                                  | [goss.yaml](maven/jdk17-maven39-ubuntu24/tests/goss.yaml)    |
+| exoplatform/ci:jdk17-maven39          | 17.0.17        | 2.7 & 3 | 5.4   | Maven 3.9.12                                  | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)             |
+| exoplatform/ci:jdk17-maven39-alpine   | 17.0.17        | 2.7 & 3 | 13.2  | Maven 3.9.12                                  | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)      |
+| exoplatform/ci:jdk17-maven39-ubuntu20 | 17.0.17        | 2.7 & 3 | 9.4   | Maven 3.9.12                                  | [goss.yaml](maven/jdk17-maven39-ubuntu20/tests/goss.yaml)    |
+| exoplatform/ci:jdk17-maven39-ubuntu22 | 17.0.17        | 2.7 & 3 | 11.4  | Maven 3.9.12                                  | [goss.yaml](maven/jdk17-maven39-ubuntu22/tests/goss.yaml)    |
+| exoplatform/ci:jdk17-maven39-ubuntu24 | 17.0.17        | 3       | 13.2  | Maven 3.9.12                                  | [goss.yaml](maven/jdk17-maven39-ubuntu24/tests/goss.yaml)    |
 | exoplatform/ci:jdk17-maven40-ubuntu22 | 17.0.17        | 2.7 & 3 | 11.4  | Maven 4.0.0-rc-5                              | [goss.yaml](maven/jdk17-maven40-ubuntu22/tests/goss.yaml)    |
-| exoplatform/ci:jdk21-maven39-ubuntu20 | 21.0.9         | 2.7 & 3 | 9.4   | Maven 3.9.11                                  | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)    |
-| exoplatform/ci:jdk21-maven39-ubuntu22 | 21.0.9         | 2.7 & 3 | 11.4  | Maven 3.9.11                                  | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)    |
-| exoplatform/ci:jdk21-maven39-ubuntu24 | 21.0.9         | 3       | 13.2  | Maven 3.9.11                                  | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml)    |
+| exoplatform/ci:jdk21-maven39-ubuntu20 | 21.0.9         | 2.7 & 3 | 9.4   | Maven 3.9.12                                  | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml)    |
+| exoplatform/ci:jdk21-maven39-ubuntu22 | 21.0.9         | 2.7 & 3 | 11.4  | Maven 3.9.12                                  | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml)    |
+| exoplatform/ci:jdk21-maven39-ubuntu24 | 21.0.9         | 3       | 13.2  | Maven 3.9.12                                  | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml)    |
 | exoplatform/ci:jdk21-maven40-ubuntu22 | 21.0.9         | 2.7 & 3 | 11.4  | Maven 4.0.0-rc-5                              | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml)    |
-| exoplatform/ci:jdk25-maven39-ubuntu24 | 25.0.1         | 3       | 13.2  | Maven 3.9.11                                  | [goss.yaml](maven/jdk25-maven39-ubuntu24/tests/goss.yaml)    |
+| exoplatform/ci:jdk25-maven39-ubuntu24 | 25.0.1         | 3       | 13.2  | Maven 3.9.12                                  | [goss.yaml](maven/jdk25-maven39-ubuntu24/tests/goss.yaml)    |
 <!-- GHAEND -->
 
 ## Overview
