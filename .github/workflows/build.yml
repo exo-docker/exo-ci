@@ -213,10 +213,7 @@ jobs:
           dockerFileContext: ${{matrix.context}}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
-
+  
   build-gradle-images:
     name: "Build Gradle Images"
     needs: build-jdk-images
@@ -246,9 +243,6 @@ jobs:
           dockerFileContext: ${{matrix.context}}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-gradle-android-images:
     name: "Build Gradle Android Images"
@@ -279,9 +273,6 @@ jobs:
           dockerFileContext: ${{matrix.context}}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   build-fastlane-android-images:
     name: "Build Fastlane Android Images"
@@ -310,9 +301,6 @@ jobs:
           dockerFileContext: ${{matrix.context}}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_PRIVATE_KEY_ID: ${{ secrets.DOCKER_PRIVATE_KEY_ID }}
-          DOCKER_PRIVATE_KEY: ${{ secrets.DOCKER_PRIVATE_KEY }}
-          DOCKER_PRIVATE_KEY_PASSPHRASE: ${{ secrets.DOCKER_PRIVATE_KEY_PASSPHRASE }}
 
   update-zulu-jdks-and-maven-readme:
     name: "Update Readme file jdk & Maven section"
