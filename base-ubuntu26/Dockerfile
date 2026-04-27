@@ -1,12 +1,12 @@
 # Dockerizing a base images with:
 #
-#   - Ubuntu 22.04
+#   - Ubuntu 26.04
 #   - Base eXo CI Configuration
 #
-# build :   docker build -t exoplatform/ci:base-ubuntu22 .
+# build :   docker build -t exoplatform/ci:base-ubuntu26 .
 #
 
-FROM  phusion/baseimage:jammy-1.0.5
+FROM  phusion/baseimage:resolute-1.0.0
 LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
@@ -38,8 +38,7 @@ RUN apt-get -qq update && \
   apt-get update && \
   apt-get install git xmlstarlet openssl libssl-dev -y && \
   apt-get -y install \
-  make \
-  python2.7 -y && \
+  make -y && \
   apt-get -y install build-essential sudo && \
   apt-get -qq -y autoremove
 
