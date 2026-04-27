@@ -40,6 +40,8 @@ jobs:
             context: base-ubuntu22
           - imageTag: base-ubuntu24
             context: base-ubuntu24
+          - imageTag: base-ubuntu26
+            context: base-ubuntu26
     permissions:
       contents: read
       packages: write
@@ -86,8 +88,12 @@ jobs:
             context: jdk/jdk21-ubuntu22
           - imageTag: jdk21-ubuntu24
             context: jdk/jdk21-ubuntu24
+          - imageTag: jdk21-ubuntu26
+            context: jdk/jdk21-ubuntu26
           - imageTag: jdk25-ubuntu24
             context: jdk/jdk25-ubuntu24
+          - imageTag: jdk25-ubuntu26
+            context: jdk/jdk25-ubuntu26
     permissions:
       contents: read
       packages: write
@@ -158,10 +164,14 @@ jobs:
             context: maven/jdk21-maven39-ubuntu22
           - imageTag: jdk21-maven39-ubuntu24
             context: maven/jdk21-maven39-ubuntu24
+          - imageTag: jdk21-maven39-ubuntu26
+            context: maven/jdk21-maven39-ubuntu26
           - imageTag: jdk21-maven40-ubuntu22
             context: maven/jdk21-maven40-ubuntu22
           - imageTag: jdk25-maven39-ubuntu24
             context: maven/jdk25-maven39-ubuntu24
+          - imageTag: jdk25-maven39-ubuntu26
+            context: maven/jdk25-maven39-ubuntu26
     permissions:
       contents: read
       packages: write
