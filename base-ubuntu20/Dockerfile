@@ -51,7 +51,7 @@ RUN apt-get install git-lfs
 RUN apt-get -qq -y clean && \
   rm -rf /var/lib/apt/lists/*
 # Install yq + gh (Github CLI)
-RUN wget -nv -q -O /usr/bin/yq https://github.com/mikefarah/yq/releases/download/4.53.2/yq_linux_amd64 && \
+RUN wget -nv -q -O /usr/bin/yq https://github.com/mikefarah/yq/releases/download/v4.53.2/yq_linux_amd64 && \
   echo "d56bf5c6819e8e696340c312bd70f849dc1678a7cda9c2ad63eebd906371d56b /usr/bin/yq" | sha256sum -c - \
   || { \
   echo "ERROR: the [/usr/bin/yq] binary downloaded from a github release was modified while is should not !!"; \
