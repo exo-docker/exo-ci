@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:base-ubuntu26 .
 #
 
-FROM  phusion/baseimage:resolute-1.0.0
+FROM  phusion/baseimage:resolute-1.0.3
 LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm
@@ -44,6 +44,7 @@ RUN apt-get -qq update && \
 
 # Install git lfs
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN sed -i 's/resolute/plucky/g' /etc/apt/sources.list.d/github_git-lfs.list
 
 RUN apt-get install git-lfs
 
