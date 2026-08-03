@@ -172,6 +172,14 @@ jobs:
             context: maven/jdk25-maven39-ubuntu24
           - imageTag: jdk25-maven39-ubuntu26
             context: maven/jdk25-maven39-ubuntu26
+          - imageTag: jdk21-maven310-ubuntu24
+            context: maven/jdk21-maven310-ubuntu24
+          - imageTag: jdk21-maven310-ubuntu26
+            context: maven/jdk21-maven310-ubuntu26
+          - imageTag: jdk25-maven310-ubuntu24
+            context: maven/jdk25-maven310-ubuntu24
+          - imageTag: jdk25-maven310-ubuntu26
+            context: maven/jdk25-maven310-ubuntu26
     permissions:
       contents: read
       packages: write
