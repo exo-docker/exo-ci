@@ -1,0 +1,67 @@
+name: Check and autobump available base images
+on:
+  schedule:
+    - cron:  '0 19 * * 5' # Every Friday at 7 PM UTC - before Maven & Build workflows
+  workflow_dispatch:
+
+jobs:
+  check-autobump-available-base:
+    name: Check and autobump base images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.SWF_TOKEN }}
+      - name: Autobump latest phusion/baseimage versions
+        run: |
+          git config --global user.email "exo-swf@exoplatform.com"
+          git config --global user.name "eXo Software Factory"
+
+          echo "### Phusion Baseimage Versions:" >> $GITHUB_STEP_SUMMARY
+
+          # Fetch all tags from Docker Hub (paginated)
+          ALL_TAGS_FILE=$(mktemp)
+          NEXT_URL="https://hub.docker.com/v2/repositories/phusion/baseimage/tags?page_size=100"
+          while [ -n "${NEXT_URL}" ]; do
+            RESPONSE=$(curl -fsSL "${NEXT_URL}")
+            echo "${RESPONSE}" | jq -r '.results[].name' >> "${ALL_TAGS_FILE}"
+            NEXT_URL=$(echo "${RESPONSE}" | jq -r '.next // empty')
+          done
+          ALL_TAGS=$(sort -V "${ALL_TAGS_FILE}")
+
+          find base* -maxdepth 1 -name Dockerfile | sort | while read -r dockerfile; do
+            current_tag=$(grep -oP 'FROM\s+phusion/baseimage:\K\S+' "${dockerfile}")
+            if [ -z "${current_tag}" ]; then
+              echo "Skipping ${dockerfile} (not based on phusion/baseimage)"
+              continue
+            fi
+
+            # Determine the prefix for matching latest tags
+            if [[ "${current_tag}" =~ ^[0-9]+\.[0-9]+ ]]; then
+              # Legacy numeric format (e.g. 0.10.2) -> match "0."
+              prefix="0."
+            else
+              # Modern codename-version format (e.g. focal-1.2.0) -> match the codename
+              prefix="${current_tag%%-*}-"
+            fi
+
+            latest_tag=$(echo "${ALL_TAGS}" | grep -P "^${prefix}[0-9]" | tail -1)
+
+            if [ -z "${latest_tag}" ]; then
+              echo "Error: Cannot find latest tag with prefix '${prefix}'"
+              continue
+            fi
+
+            echo " - ${dockerfile}: ${current_tag} -> ${latest_tag}"
+            echo " - ${dockerfile}: ${current_tag} -> ${latest_tag}" >> $GITHUB_STEP_SUMMARY
+
+            if [ "${current_tag}" != "${latest_tag}" ]; then
+              sed -i "s|FROM  phusion/baseimage:${current_tag}|FROM  phusion/baseimage:${latest_tag}|" "${dockerfile}"
+              git add "${dockerfile}"
+              git diff-index --quiet HEAD || git commit -m "Autobump base image ${dockerfile} to ${latest_tag}"
+            fi
+          done
+
+          echo "Done"
+          git push origin HEAD
