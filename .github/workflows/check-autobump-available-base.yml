@@ -15,10 +15,12 @@ jobs:
           token: ${{ secrets.SWF_TOKEN }}
       - name: Autobump latest phusion/baseimage versions
         run: |
+          set -euo pipefail
+
           git config --global user.email "exo-swf@exoplatform.com"
           git config --global user.name "eXo Software Factory"
 
-          echo "### Phusion Baseimage Versions:" >> $GITHUB_STEP_SUMMARY
+          echo "### Phusion Baseimage Versions:" >> "$GITHUB_STEP_SUMMARY"
 
           # Fetch all tags from Docker Hub (paginated)
           ALL_TAGS_FILE=$(mktemp)
@@ -30,10 +32,12 @@ jobs:
           done
           ALL_TAGS=$(sort -V "${ALL_TAGS_FILE}")
 
-          find base* -maxdepth 1 -name Dockerfile | sort | while read -r dockerfile; do
-            current_tag=$(grep -oP 'FROM\s+phusion/baseimage:\K\S+' "${dockerfile}")
+          # Process each base image Dockerfile
+          UPDATE_COUNT=0
+          while IFS= read -r dockerfile; do
+            current_tag=$(grep -oP 'FROM\s+phusion/baseimage:\K\S+' "${dockerfile}" || true)
             if [ -z "${current_tag}" ]; then
-              echo "Skipping ${dockerfile} (not based on phusion/baseimage)"
+              echo "  SKIP ${dockerfile} (not based on phusion/baseimage)"
               continue
             fi
 
@@ -46,22 +50,27 @@ jobs:
               prefix="${current_tag%%-*}-"
             fi
 
-            latest_tag=$(echo "${ALL_TAGS}" | grep -P "^${prefix}[0-9]" | tail -1)
+            latest_tag=$(echo "${ALL_TAGS}" | grep -P "^${prefix}[0-9]" | tail -1) || true
 
             if [ -z "${latest_tag}" ]; then
-              echo "Error: Cannot find latest tag with prefix '${prefix}'"
+              echo "  ERROR: Cannot find latest tag with prefix '${prefix}' for ${dockerfile}"
               continue
             fi
 
-            echo " - ${dockerfile}: ${current_tag} -> ${latest_tag}"
-            echo " - ${dockerfile}: ${current_tag} -> ${latest_tag}" >> $GITHUB_STEP_SUMMARY
+            echo "  ${dockerfile}: ${current_tag} -> ${latest_tag}"
+            echo " - ${dockerfile}: ${current_tag} -> ${latest_tag}" >> "$GITHUB_STEP_SUMMARY"
 
             if [ "${current_tag}" != "${latest_tag}" ]; then
               sed -i "s|FROM  phusion/baseimage:${current_tag}|FROM  phusion/baseimage:${latest_tag}|" "${dockerfile}"
               git add "${dockerfile}"
-              git diff-index --quiet HEAD || git commit -m "Autobump base image ${dockerfile} to ${latest_tag}"
+              UPDATE_COUNT=$((UPDATE_COUNT + 1))
             fi
-          done
+          done < <(find base* -maxdepth 1 -name Dockerfile | sort)
 
-          echo "Done"
-          git push origin HEAD
+          if [ "${UPDATE_COUNT}" -gt 0 ]; then
+            git commit -m "Autobump base images to latest versions"
+            git push origin HEAD
+            echo "  Committed and pushed ${UPDATE_COUNT} update(s)"
+          else
+            echo "  No updates needed"
+          fi
