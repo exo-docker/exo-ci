@@ -36,7 +36,7 @@ ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 RUN mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.ssh \
     && mkdir -p ${HOME}/.gnupg \
-    && chmod 700 ${HOME}/.gnupg 
+    && chmod 700 ${HOME}/.gnupg
 
 # Increase npm packages fetch timeout
 RUN echo 'fetch-retries=5\nfetch-retry-maxtimeout=6000000\nfetch-retry-mintimeout=1200000\nfetch-timeout=1800000' > ${HOME}/.npmrc

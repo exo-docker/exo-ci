@@ -37,7 +37,7 @@ ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 RUN mkdir -p ${HOME}/.m2/repository \
     && mkdir -p ${HOME}/.ssh \
     && mkdir -p ${HOME}/.gnupg \
-    && chmod 700 ${HOME}/.gnupg 
+    && chmod 700 ${HOME}/.gnupg
 
 WORKDIR ${EXO_CI_DATA_DIR}
 
