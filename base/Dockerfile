@@ -6,7 +6,7 @@
 # build :   docker build -t exoplatform/ci:base .
 #
 
-FROM  phusion/baseimage:0.11
+FROM  phusion/baseimage:0.10.2
 LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 ENV TERM=xterm

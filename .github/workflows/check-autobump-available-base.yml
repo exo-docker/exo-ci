@@ -32,9 +32,16 @@ jobs:
           done
           ALL_TAGS=$(sort -V "${ALL_TAGS_FILE}")
 
+          # Dockerfiles to exclude from autobump (must stay pinned on a legacy base)
+          SKIP_DOCKERFILES="base/Dockerfile"
+
           # Process each base image Dockerfile
           UPDATE_COUNT=0
           while IFS= read -r dockerfile; do
+            if [[ " ${SKIP_DOCKERFILES} " == *" ${dockerfile} "* ]]; then
+              echo "  SKIP ${dockerfile} (excluded from autobump)"
+              continue
+            fi
             current_tag=$(grep -oP 'FROM\s+phusion/baseimage:\K\S+' "${dockerfile}" || true)
             if [ -z "${current_tag}" ]; then
               echo "  SKIP ${dockerfile} (not based on phusion/baseimage)"
