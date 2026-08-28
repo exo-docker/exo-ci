@@ -44,7 +44,6 @@ RUN apt-get -qq update && \
 
 # Install git lfs
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-RUN sed -i 's/resolute/plucky/g' /etc/apt/sources.list.d/github_git-lfs.list
 
 RUN apt-get install git-lfs
 
