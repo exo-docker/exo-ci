@@ -59,9 +59,10 @@ RUN wget -nv -q -O /usr/bin/yq https://github.com/mikefarah/yq/releases/download
   return 1; \
   } && chmod a+x /usr/bin/yq
 
-# Migrate to APT Keyring when moving to ubuntu 20.04+ https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-RUN  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 23F3D4EA75716059 \
-  && apt-add-repository -y https://cli.github.com/packages \
+# Install GitHub CLI - https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+RUN mkdir -p -m 755 /etc/apt/keyrings \
+  && wget -nv -q -O /etc/apt/keyrings/githubcli-archive-keyring.gpg https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
   && apt-get -qq update \
   && apt-get -qq -y install gh
 
