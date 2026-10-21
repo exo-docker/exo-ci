@@ -132,6 +132,8 @@ jobs:
             context: maven/jdk8-maven33
           - imageTag: jdk8-maven35
             context: maven/jdk8-maven35
+          - imageTag: jdk11-maven32
+            context: maven/jdk11-maven32
           - imageTag: jdk11-maven33
             context: maven/jdk11-maven33
           - imageTag: jdk11-maven35
@@ -140,6 +142,12 @@ jobs:
             context: maven/jdk11-maven36
           - imageTag: jdk11-maven38
             context: maven/jdk11-maven38
+          - imageTag: jdk11-mavend08
+            context: mavend/jdk11-mavend08
+          - imageTag: jdk17-mavend08
+            context: mavend/jdk17-mavend08
+          - imageTag: jdk17-mavend09
+            context: mavend/jdk17-mavend09
           - imageTag: jdk17-maven36
             context: maven/jdk17-maven36
           - imageTag: jdk17-maven38

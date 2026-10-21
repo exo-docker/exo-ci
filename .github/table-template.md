@@ -5,6 +5,7 @@
 | exoplatform/ci:base-ubuntu20          | n/a       | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](base-ubuntu20/tests/goss.yaml)                |
 | exoplatform/ci:base-ubuntu22          | n/a       | 2.7 & 3 | 11.4  | n/a                                          | [goss.yaml](base-ubuntu22/tests/goss.yaml)                |
 | exoplatform/ci:base-ubuntu24          | n/a       | 3       | 13.2  | n/a                                          | [goss.yaml](base-ubuntu24/tests/goss.yaml)                |
+| exoplatform/ci:base-ubuntu26          | n/a                     | 3       | 14   | n/a                                                     | [goss.yaml](base-ubuntu26/tests/goss.yaml)                |
 | exoplatform/ci:jdk6                   | 1.6.0_45  | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](jdk/jdk6/tests/goss.yaml)                     |
 | exoplatform/ci:jdk7                   | 1.7.0_80  | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](jdk/jdk7/tests/goss.yaml)                     |
 | exoplatform/ci:jdk8                   | ${JDK8_VERSION}     | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](jdk/jdk8/tests/goss.yaml)                     |
@@ -14,6 +15,12 @@
 | exoplatform/ci:jdk17-ubuntu20         | ${JDK17_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/jdk17-ubuntu20/tests/goss.yaml)           |
 | exoplatform/ci:jdk21-ubuntu20         | ${JDK21_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/jdk21-ubuntu20/tests/goss.yaml)              |
 | exoplatform/ci:jdk21-ubuntu22         | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | n/a                                          | [goss.yaml](jdk/jdk21-ubuntu22/tests/goss.yaml)              |
+| exoplatform/ci:jdk17-ubuntu22         | ${JDK17_VERSION}        | 2.7 & 3 | 11.4 | n/a                                                     | [goss.yaml](jdk/jdk17-ubuntu22/tests/goss.yaml)           |
+| exoplatform/ci:jdk17-ubuntu24         | ${JDK17_VERSION}        | 3       | 13.2 | n/a                                                     | [goss.yaml](jdk/jdk17-ubuntu24/tests/goss.yaml)           |
+| exoplatform/ci:jdk21-ubuntu24         | ${JDK21_VERSION}        | 3       | 13.2 | n/a                                                     | [goss.yaml](jdk/jdk21-ubuntu24/tests/goss.yaml)           |
+| exoplatform/ci:jdk21-ubuntu26         | ${JDK21_VERSION}        | 3       | 14   | n/a                                                     | [goss.yaml](jdk/jdk21-ubuntu26/tests/goss.yaml)           |
+| exoplatform/ci:jdk25-ubuntu24         | ${JDK25_VERSION}        | 3       | 13.2 | n/a                                                     | [goss.yaml](jdk/jdk25-ubuntu24/tests/goss.yaml)           |
+| exoplatform/ci:jdk25-ubuntu26         | ${JDK25_VERSION}        | 3       | 14   | n/a                                                     | [goss.yaml](jdk/jdk25-ubuntu26/tests/goss.yaml)           |
 | exoplatform/ci:jdk8-gradle2           | 1.8.0_202 | 2.7 & 3 | 5.4  | Gradle 2.14                                  | [goss.yaml](jdk/jdk8-gradle2/tests/goss.yaml)             |
 | exoplatform/ci:jdk8-gradle2-android   | 1.8.0_202 | 2.7 & 3 | 5.4  | Gradle 2.14 / Android 23/24                  | [goss.yaml](gradle/jdk8-gradle2-android/tests/goss.yaml)  |
 | exoplatform/ci:jdk8-gradle4           | ${JDK8_VERSION}     | 2.7 & 3 | 5.4  | Gradle 4.1                                   | [goss.yaml](jdk/jdk8-gradle4/tests/goss.yaml)             |
@@ -51,6 +58,8 @@
 | exoplatform/ci:jdk21-maven39-ubuntu24 | ${JDK21_VERSION}        | 3       | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven40-ubuntu22 | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN40_VERSION}                           | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml) |
 | exoplatform/ci:jdk25-maven39-ubuntu24 | ${JDK25_VERSION}        | 3       | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk25-maven39-ubuntu24/tests/goss.yaml) |
+| exoplatform/ci:jdk21-maven39-ubuntu26 | ${JDK21_VERSION}        | 3       | 14   | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu26/tests/goss.yaml) |
+| exoplatform/ci:jdk25-maven39-ubuntu26 | ${JDK25_VERSION}        | 3       | 14   | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk25-maven39-ubuntu26/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven310-ubuntu24 | ${JDK21_VERSION}        | 3       | 13.2 | Maven 3.10.0-rc-1                           | [goss.yaml](maven/jdk21-maven310-ubuntu24/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven310-ubuntu26 | ${JDK21_VERSION}        | 3       | 14 | Maven 3.10.0-rc-1                           | [goss.yaml](maven/jdk21-maven310-ubuntu26/tests/goss.yaml) |
 | exoplatform/ci:jdk25-maven310-ubuntu24 | ${JDK25_VERSION}        | 3       | 13.2 | Maven 3.10.0-rc-1                           | [goss.yaml](maven/jdk25-maven310-ubuntu24/tests/goss.yaml) |
