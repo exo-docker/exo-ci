@@ -322,7 +322,10 @@ jobs:
           export JDK${major_jdk_version}_VERSION=$(echo ${latestversion} | sed 's/,/./g')
         done
         for major_mvn_version in ${mvn_list//,/ }; do 
-          latestversion=$(curl -fsSL -X GET "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | awk '{print $1}' | tr -d '"' | sort --version-sort | tail -1) 
+          versions=$(curl -fsSL -X GET "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | awk '{print $1}' | tr -d '"')
+          # Prefer a GA release: version sort ranks "3.10.0-rc-1" above "3.10.0"
+          latestversion=$(echo "${versions}" | grep -P '^[0-9.]+$' | sort --version-sort | tail -1)
+          [ -n "${latestversion}" ] || latestversion=$(echo "${versions}" | sort --version-sort | tail -1)
           if [ -z "${latestversion}" ]; then
             echo "Error: Cannot find latest version for Maven ${major_mvn_version}! Abort!"
             exit 1
