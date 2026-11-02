@@ -3,6 +3,7 @@ on:
   schedule:
     - cron:  '0 22 * * 5' # Every Friday at 10 PM UTC
   workflow_dispatch:
+
 env:
   jdk_list: ${{ vars.JDK_LIST }}
   mvn_list: ${{ vars.MVN_LIST }}
@@ -34,8 +35,6 @@ jobs:
             context: base
           - imageTag: base-alpine
             context: base-alpine
-          - imageTag: base-ubuntu20
-            context: base-ubuntu20
           - imageTag: base-ubuntu22
             context: base-ubuntu22
           - imageTag: base-ubuntu24
@@ -76,14 +75,10 @@ jobs:
             context: jdk/jdk17
           - imageTag: jdk17-alpine
             context: jdk/jdk17-alpine
-          - imageTag: jdk17-ubuntu20
-            context: jdk/jdk17-ubuntu20
           - imageTag: jdk17-ubuntu22
             context: jdk/jdk17-ubuntu22
           - imageTag: jdk17-ubuntu24
             context: jdk/jdk17-ubuntu24
-          - imageTag: jdk21-ubuntu20
-            context: jdk/jdk21-ubuntu20
           - imageTag: jdk21-ubuntu22
             context: jdk/jdk21-ubuntu22
           - imageTag: jdk21-ubuntu24
@@ -156,18 +151,12 @@ jobs:
             context: maven/jdk17-maven39
           - imageTag: jdk17-maven39-alpine
             context: maven/jdk17-maven39-alpine
-          - imageTag: jdk17-maven39-ubuntu20
-            context: maven/jdk17-maven39-ubuntu20
           - imageTag: jdk17-maven39-ubuntu22
             context: maven/jdk17-maven39-ubuntu22
           - imageTag: jdk17-maven39-ubuntu24
             context: maven/jdk17-maven39-ubuntu24
           - imageTag: jdk17-maven40-ubuntu22
             context: maven/jdk17-maven40-ubuntu22
-          - imageTag: jdk21-maven39-ubuntu20
-            context: maven/jdk21-maven39-ubuntu20
-          - imageTag: jdk21-maven39-ubuntu20
-            context: maven/jdk21-maven39-ubuntu20
           - imageTag: jdk21-maven39-ubuntu22
             context: maven/jdk21-maven39-ubuntu22
           - imageTag: jdk21-maven39-ubuntu24
@@ -302,41 +291,10 @@ jobs:
       with:
         token: ${{ secrets.SWF_TOKEN }}
         ref: ${{ github.ref }}
-    - name: Check latest jdk & maven versions
+    - name: Regenerate the README images table
+      run: .github/scripts/update-readme.sh
+    - name: Commit and push README
       run: |
-        if ! grep -q '<!-- GHASTART -->' README.md; then
-          echo "Error: Cannot find <!-- GHASTART --> md comment in Readme.md file! Abort"
-          exit 1
-        fi
-        if ! grep -q '<!-- GHAEND -->' README.md; then
-          echo "Error: Cannot find <!-- GHAEND --> md comment in Readme.md file! Abort"
-          exit 1
-        fi
-        echo "Fetching latest versions of JDK (${jdk_list}):"
-        for major_jdk_version in ${jdk_list//,/ }; do
-          latestversion=$(curl -fsSL -X GET "https://api.azul.com/metadata/v1/zulu/packages/?java_version=${major_jdk_version}&os=ubuntu&arch=amd&java_package_type=jdk&javafx_bundled=false&release_status=ga&availability_types=CA&certifications=tck&page=1&page_size=1"   -H "accept: application/json" | jq -r '.[].java_version | join(",")')
-          if [ -z "${latestversion}" ]; then
-            echo "Error: Cannot find latest version for JDK ${major_jdk_version}! Abort!"
-            exit 1
-          fi
-          export JDK${major_jdk_version}_VERSION=$(echo ${latestversion} | sed 's/,/./g')
-        done
-        for major_mvn_version in ${mvn_list//,/ }; do 
-          versions=$(curl -fsSL -X GET "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'  | tail -n +2 | tr -d '/' | grep -P "^${major_mvn_version}" | awk '{print $1}' | tr -d '"')
-          # Prefer a GA release: version sort ranks "3.10.0-rc-1" above "3.10.0"
-          latestversion=$(echo "${versions}" | grep -P '^[0-9.]+$' | sort --version-sort | tail -1)
-          [ -n "${latestversion}" ] || latestversion=$(echo "${versions}" | sort --version-sort | tail -1)
-          if [ -z "${latestversion}" ]; then
-            echo "Error: Cannot find latest version for Maven ${major_mvn_version}! Abort!"
-            exit 1
-          fi
-          export MVN${major_mvn_version//./}_VERSION=$(echo ${latestversion} | sed 's/,/./g')
-        done
-        perl -pe 's/\$\{([^}]+)\}/$ENV{$1} || ""/ge' .github/table-template.md | column -t -s '|' -o '|' > /tmp/mdtable
-        sed '/<!-- GHASTART -->/q' README.md > /tmp/newreadme
-        cat /tmp/mdtable >> /tmp/newreadme
-        sed -n '/<!-- GHAEND -->/,$p' README.md >> /tmp/newreadme
-        cp -f /tmp/newreadme README.md
         git status
         git config --global user.email "exo-swf@exoplatform.com"
         git config --global user.name "eXo Software Factory"

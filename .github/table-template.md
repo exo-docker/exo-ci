@@ -2,7 +2,6 @@
 |---------------------------------------|-----------|---------|------|----------------------------------------------|-----------------------------------------------------------|
 | exoplatform/ci:base                   | n/a       | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](base/tests/goss.yaml)                         |
 | exoplatform/ci:base-alpine            | n/a       | 2.7 & 3 | 13.2  | n/a                                          | [goss.yaml](base-alpine/tests/goss.yaml)                  |
-| exoplatform/ci:base-ubuntu20          | n/a       | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](base-ubuntu20/tests/goss.yaml)                |
 | exoplatform/ci:base-ubuntu22          | n/a       | 2.7 & 3 | 11.4  | n/a                                          | [goss.yaml](base-ubuntu22/tests/goss.yaml)                |
 | exoplatform/ci:base-ubuntu24          | n/a       | 3       | 13.2  | n/a                                          | [goss.yaml](base-ubuntu24/tests/goss.yaml)                |
 | exoplatform/ci:base-ubuntu26          | n/a                     | 3       | 14   | n/a                                                     | [goss.yaml](base-ubuntu26/tests/goss.yaml)                |
@@ -12,8 +11,6 @@
 | exoplatform/ci:jdk11                  | ${JDK11_VERSION}        | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](jdk/jdk11/tests/goss.yaml)                    |
 | exoplatform/ci:jdk17                  | ${JDK17_VERSION}        | 2.7 & 3 | 5.4  | n/a                                          | [goss.yaml](jdk/jdk17/tests/goss.yaml)                    |
 | exoplatform/ci:jdk17-alpine           | ${JDK17_VERSION}        | 2.7 & 3 | 13.2  | n/a                                          | [goss.yaml](jdk/jdk17-alpine/tests/goss.yaml)             |
-| exoplatform/ci:jdk17-ubuntu20         | ${JDK17_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/jdk17-ubuntu20/tests/goss.yaml)           |
-| exoplatform/ci:jdk21-ubuntu20         | ${JDK21_VERSION}        | 2.7 & 3 | 9.4  | n/a                                          | [goss.yaml](jdk/jdk21-ubuntu20/tests/goss.yaml)              |
 | exoplatform/ci:jdk21-ubuntu22         | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | n/a                                          | [goss.yaml](jdk/jdk21-ubuntu22/tests/goss.yaml)              |
 | exoplatform/ci:jdk17-ubuntu22         | ${JDK17_VERSION}        | 2.7 & 3 | 11.4 | n/a                                                     | [goss.yaml](jdk/jdk17-ubuntu22/tests/goss.yaml)           |
 | exoplatform/ci:jdk17-ubuntu24         | ${JDK17_VERSION}        | 3       | 13.2 | n/a                                                     | [goss.yaml](jdk/jdk17-ubuntu24/tests/goss.yaml)           |
@@ -49,11 +46,9 @@
 | exoplatform/ci:jdk17-mavend09         | ${JDK17_VERSION}        | 2.7 & 3 | 5.4  | Mavend 0.9.0                                 | [goss.yaml](mavend/jdk17-mavend09/tests/goss.yaml)        |
 | exoplatform/ci:jdk17-maven39          | ${JDK17_VERSION}        | 2.7 & 3 | 5.4  | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk17-maven39/tests/goss.yaml)          |
 | exoplatform/ci:jdk17-maven39-alpine   | ${JDK17_VERSION}        | 2.7 & 3 | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk17-maven39-alpine/tests/goss.yaml)   |
-| exoplatform/ci:jdk17-maven39-ubuntu20 | ${JDK17_VERSION}        | 2.7 & 3 | 9.4  | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk17-maven39-ubuntu20/tests/goss.yaml) |
 | exoplatform/ci:jdk17-maven39-ubuntu22 | ${JDK17_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk17-maven39-ubuntu22/tests/goss.yaml) |
 | exoplatform/ci:jdk17-maven39-ubuntu24 | ${JDK17_VERSION}        | 3       | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk17-maven39-ubuntu24/tests/goss.yaml) |
 | exoplatform/ci:jdk17-maven40-ubuntu22 | ${JDK17_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN40_VERSION}                           | [goss.yaml](maven/jdk17-maven40-ubuntu22/tests/goss.yaml) |
-| exoplatform/ci:jdk21-maven39-ubuntu20 | ${JDK21_VERSION}        | 2.7 & 3 | 9.4  | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu20/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven39-ubuntu22 | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu22/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven39-ubuntu24 | ${JDK21_VERSION}        | 3       | 13.2 | Maven ${MVN39_VERSION}                                  | [goss.yaml](maven/jdk21-maven39-ubuntu24/tests/goss.yaml) |
 | exoplatform/ci:jdk21-maven40-ubuntu22 | ${JDK21_VERSION}        | 2.7 & 3 | 11.4 | Maven ${MVN40_VERSION}                           | [goss.yaml](maven/jdk21-maven40-ubuntu22/tests/goss.yaml) |
