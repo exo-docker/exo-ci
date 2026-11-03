@@ -1,12 +1,12 @@
 # Dockerizing a base images with:
 #
-#   - alpine 3.19
+#   - alpine 3.24
 #   - Base eXo CI Configuration
 #
 # build :   docker build -t exoplatform/ci:base-alpine .
 #
 
-FROM  alpine:3.19
+FROM  alpine:3.24
 LABEL MAINTAINER="eXo Platform <docker@exoplatform.com>"
 
 # Install some useful or needed tools
